@@ -1,0 +1,477 @@
+/* ==========================================
+   CALENDAR - MATCHES ClassDetailView THEME
+   ========================================== */
+
+.cc-calendar-container {
+  width: 100%;
+  max-width: 450px;
+  margin: 0 auto;
+}
+
+/* Main Calendar Card - Using EXACT theme from stat-card */
+.cc-calendar {
+  width: 100%;
+  padding: 30px;
+  border-radius: 16px;
+  border: 2px solid rgba(0, 212, 255, 0.2);
+  background: rgba(255, 255, 255, 0.03);
+  margin-bottom: 30px;
+}
+
+/* ==========================================
+   HEADER - Matches your component headers
+   ========================================== */
+
+.cc-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.cc-month-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--accent-cyan);
+}
+
+.cc-nav-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-primary);
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cc-nav-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(0, 212, 255, 0.3);
+  transform: scale(1.1);
+}
+
+/* ==========================================
+   WEEKDAYS
+   ========================================== */
+
+.cc-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.cc-weekday {
+  text-align: center;
+  color: var(--text-secondary);
+  font-weight: 600;
+  font-size: 0.75rem;
+  padding: 8px 4px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+}
+
+.cc-weekday-scheduled {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+/* ==========================================
+   CALENDAR GRID
+   ========================================== */
+
+.cc-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+  margin-bottom: 20px;
+}
+
+.cc-day {
+  aspect-ratio: 1;
+  min-height: 50px;
+  border-radius: 10px;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.cc-day.empty {
+  background: transparent;
+  border: none;
+  cursor: default;
+}
+
+.cc-day:not(.empty):not(.tile-holiday):not(.tile-sunday):hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(0, 212, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Day Number */
+.day-number {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  z-index: 2;
+  margin-bottom: 2px;
+}
+
+/* Day Labels */
+.day-label {
+  font-size: 0.6rem;
+  font-weight: 700;
+  padding: 2px 5px;
+  border-radius: 5px;
+  margin-top: 2px;
+  text-align: center;
+  line-height: 1;
+}
+
+.holiday-label {
+  background: rgba(239, 68, 68, 0.2);
+  color: #ef4444;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  font-size: 0.55rem;
+}
+
+.extra-label {
+  font-size: 1rem;
+}
+
+/* Tile Types - Using YOUR color scheme */
+.tile-scheduled {
+  background: linear-gradient(
+    135deg,
+    rgba(0, 212, 255, 0.2),
+    rgba(0, 255, 212, 0.2)
+  );
+  border: 2px solid rgba(0, 212, 255, 0.3);
+}
+
+.tile-extra {
+  background: linear-gradient(
+    135deg,
+    rgba(147, 51, 234, 0.2),
+    rgba(168, 85, 247, 0.15)
+  );
+  border: 2px solid rgba(147, 51, 234, 0.4);
+}
+
+.tile-holiday {
+  background: rgba(239, 68, 68, 0.15);
+  border-color: rgba(239, 68, 68, 0.3);
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.tile-sunday {
+  background: rgba(255, 255, 255, 0.02);
+  border-color: rgba(255, 255, 255, 0.05);
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.tile-today {
+  border: 2px solid #00d4ff !important;
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.4);
+}
+
+/* ==========================================
+   LEGEND - Matches your theme exactly
+   ========================================== */
+
+.cc-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 15px;
+  background: rgba(0, 212, 255, 0.05);
+  border-radius: 10px;
+  border: 1px solid rgba(0, 212, 255, 0.1);
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+.legend-box {
+  width: 18px;
+  height: 10px;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+/* ==========================================
+   MODALS - EXACTLY matching your student modal
+   ========================================== */
+
+.cc-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  padding: 20px;
+}
+
+.cc-modal {
+  padding: 30px;
+  border-radius: 20px;
+  max-width: 600px;
+  width: 100%;
+  border: 2px solid rgba(0, 212, 255, 0.3);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.cc-modal h3 {
+  color: var(--accent-cyan);
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+}
+
+.modal-date {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Session Info Cards */
+.session-info {
+  background: linear-gradient(
+    135deg,
+    rgba(0, 212, 255, 0.1),
+    rgba(0, 255, 212, 0.05)
+  );
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  margin-bottom: 15px;
+}
+
+.session-info.extra {
+  background: linear-gradient(
+    135deg,
+    rgba(147, 51, 234, 0.1),
+    rgba(168, 85, 247, 0.05)
+  );
+  border-color: rgba(147, 51, 234, 0.3);
+}
+
+.session-info h4 {
+  color: var(--accent-cyan);
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.session-info p {
+  margin: 8px 0;
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.session-info p strong {
+  color: var(--text-secondary);
+  margin-right: 8px;
+  font-weight: 600;
+}
+
+/* Form Group */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  color: var(--text-secondary);
+  font-weight: 600;
+  margin-bottom: 8px;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.cc-input {
+  width: 100%;
+  padding: 12px 15px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+.cc-input:focus {
+  outline: none;
+  border-color: rgba(0, 212, 255, 0.3);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* Modal Actions */
+.modal-actions {
+  display: flex;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.modal-btn {
+  flex: 1;
+  padding: 14px 20px;
+  border-radius: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid;
+  font-size: 0.95rem;
+}
+
+.modal-btn.cancel {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-primary);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.modal-btn.cancel:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.modal-btn.confirm,
+.modal-btn:not(.cancel) {
+  background: linear-gradient(
+    135deg,
+    rgba(0, 212, 255, 0.2),
+    rgba(0, 255, 212, 0.2)
+  );
+  border-color: rgba(0, 212, 255, 0.3);
+  color: var(--accent-cyan);
+}
+
+.modal-btn.confirm:hover,
+.modal-btn:not(.cancel):hover {
+  background: linear-gradient(
+    135deg,
+    rgba(0, 212, 255, 0.3),
+    rgba(0, 255, 212, 0.3)
+  );
+  transform: translateY(-2px);
+}
+
+/* ==========================================
+   RESPONSIVE - MOBILE
+   ========================================== */
+
+@media (max-width: 768px) {
+  .cc-calendar-container {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .cc-calendar {
+    padding: 20px;
+  }
+
+  .cc-month-title {
+    font-size: 1.1rem;
+  }
+
+  .cc-nav-btn {
+    width: 35px;
+    height: 35px;
+    font-size: 1rem;
+  }
+
+  .cc-weekday {
+    font-size: 0.65rem;
+    padding: 6px 2px;
+  }
+
+  .cc-grid {
+    gap: 5px;
+  }
+
+  .cc-day {
+    min-height: 42px;
+    padding: 6px;
+  }
+
+  .day-number {
+    font-size: 0.85rem;
+  }
+
+  .day-label {
+    font-size: 0.55rem;
+    padding: 1px 4px;
+  }
+
+  .legend-item {
+    font-size: 0.7rem;
+  }
+
+  .cc-modal {
+    padding: 20px;
+  }
+
+  .cc-modal h3 {
+    font-size: 1.2rem;
+  }
+
+  .modal-actions {
+    flex-direction: column;
+  }
+}
+
+/* ==========================================
+   RESPONSIVE - DESKTOP
+   ========================================== */
+
+@media (min-width: 1024px) {
+  .cc-calendar-container {
+    max-width: 500px;
+  }
+
+  .cc-calendar {
+    padding: 30px;
+  }
+
+  .cc-day {
+    min-height: 55px;
+  }
+
+  .day-number {
+    font-size: 1rem;
+  }
+}

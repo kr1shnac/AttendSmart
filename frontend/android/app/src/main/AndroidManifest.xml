@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- ============================================ -->
+    <!-- NETWORK PERMISSIONS -->
+    <!-- ============================================ -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <!-- ============================================ -->
+    <!-- LOCATION PERMISSIONS (Android 12+ compliant) -->
+    <!-- ============================================ -->
+    <!-- Fine location for GPS verification -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    
+    <!-- Background location - CRITICAL for geofencing when app is minimized -->
+    <!-- Must request separately after foreground permission granted (Android 10+) -->
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+    
+    <uses-feature android:name="android.hardware.location.gps" android:required="false" />
+
+    <!-- ============================================ -->
+    <!-- BLUETOOTH PERMISSIONS (Android 12+ / API 31+) -->
+    <!-- ============================================ -->
+    <!-- Legacy permissions (Android 11 and below) -->
+    <uses-permission android:name="android.permission.BLUETOOTH" 
+        android:maxSdkVersion="30" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" 
+        android:maxSdkVersion="30" />
+    
+    <!-- Android 12+ (API 31+) - Runtime permissions required -->
+    <uses-permission android:name="android.permission.BLUETOOTH_SCAN" 
+        android:usesPermissionFlags="neverForLocation"
+        tools:targetApi="s" />
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADVERTISE" />
+    
+    <uses-feature android:name="android.hardware.bluetooth_le" android:required="false" />
+
+    <!-- ============================================ -->
+    <!-- CAMERA PERMISSIONS (for face recognition) -->
+    <!-- ============================================ -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature android:name="android.hardware.camera" android:required="false" />
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false" />
+    <uses-feature android:name="android.hardware.camera.front" android:required="false" />
+
+    <!-- ============================================ -->
+    <!-- BIOMETRIC/FINGERPRINT PERMISSIONS -->
+    <!-- ============================================ -->
+    <uses-permission android:name="android.permission.USE_BIOMETRIC" />
+    <uses-permission android:name="android.permission.USE_FINGERPRINT" />
+    <uses-feature android:name="android.hardware.fingerprint" android:required="false" />
+
+    <!-- ============================================ -->
+    <!-- BACKGROUND & FOREGROUND SERVICE PERMISSIONS -->
+    <!-- ============================================ -->
+    <!-- Required for background geolocation service -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_LOCATION" />
+    
+    <!-- Wake lock to keep location updates running -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    
+    <!-- Battery optimization whitelist - prevents OS from killing background service -->
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
+    
+    <!-- Keep app running after boot (optional - for persistent geofencing) -->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <!-- ============================================ -->
+    <!-- NOTIFICATION PERMISSIONS (Android 13+) -->
+    <!-- ============================================ -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
+    <!-- ============================================ -->
+    <!-- VIBRATION (for haptic feedback) -->
+    <!-- ============================================ -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <!-- ============================================ -->
+    <!-- APPLICATION -->
+    <!-- ============================================ -->
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true"
+        android:requestLegacyExternalStorage="true">
+
+        <!-- Main Activity -->
+        <activity
+            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|smallestScreenSize|screenLayout|uiMode"
+            android:name=".MainActivity"
+            android:label="@string/title_activity_main"
+            android:theme="@style/AppTheme.NoActionBarLaunch"
+            android:launchMode="singleTask"
+            android:exported="true">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
+
+        <!-- FileProvider for camera captures -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <!-- Background Geolocation Service (for @capacitor-community/background-geolocation) -->
+        <service
+            android:name="com.transistorsoft.locationmanager.service.TrackingService"
+            android:foregroundServiceType="location"
+            android:exported="false" />
+
+        <!-- Boot receiver for persistent geofencing (optional) -->
+        <receiver
+            android:name="com.transistorsoft.locationmanager.BootReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+    </application>
+
+</manifest>
+
+

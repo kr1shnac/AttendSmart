@@ -1,0 +1,2379 @@
+:root {
+  --bg-primary: #050508;
+  --bg-secondary: #0d0d14;
+  --accent-cyan: #00d4ff;
+  --accent-teal: #00ffd4;
+  --accent-purple: #8b5cf6;
+  --aurora-blue: #3b82f6;
+  --aurora-green: #10b981;
+  --text-primary: #ffffff;
+  --text-secondary: #8892a6;
+  --text-muted: #5a6478;
+
+  /* Refined Glass Variables - More Subtle */
+  --glass-bg: rgba(255, 255, 255, 0.02);
+  --glass-border: rgba(255, 255, 255, 0.06);
+  --glass-shadow: 0 4px 20px rgba(0, 0, 0, 0.35), 0 1px 2px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+
+  /* Subtle Glow - Reduced */
+  --glow-cyan: 0 0 20px rgba(0, 212, 255, 0.08);
+  --aurora-glow: 0 0 15px rgba(0, 212, 255, 0.08);
+
+  /* Transitions */
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-fast: all 0.2s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", "Segoe UI", sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+      ellipse 80% 50% at 20% 30%,
+      rgba(0, 212, 255, 0.08) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      ellipse 60% 50% at 80% 70%,
+      rgba(16, 185, 129, 0.06) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      ellipse 40% 40% at 40% 80%,
+      rgba(0, 255, 212, 0.05) 0%,
+      transparent 50%
+    ),
+    linear-gradient(
+      180deg,
+      var(--bg-primary) 0%,
+      #0f0f1a 50%,
+      var(--bg-primary) 100%
+    );
+  z-index: -2;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(
+      circle at 25% 25%,
+      rgba(0, 212, 255, 0.1) 0%,
+      transparent 25%
+    ),
+    radial-gradient(
+      circle at 75% 75%,
+      rgba(0, 255, 212, 0.08) 0%,
+      transparent 25%
+    );
+  animation: auroraFlow 20s ease-in-out infinite;
+  z-index: -1;
+}
+
+@keyframes auroraFlow {
+  0%,
+  100% {
+    transform: translateX(0) translateY(0) scale(1);
+    opacity: 0.6;
+  }
+  25% {
+    transform: translateX(-20px) translateY(-10px) scale(1.05);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateX(20px) translateY(10px) scale(0.95);
+    opacity: 0.7;
+  }
+  75% {
+    transform: translateX(-10px) translateY(20px) scale(1.02);
+    opacity: 0.9;
+  }
+}
+
+.screen {
+  display: none;
+  min-height: 100vh;
+  animation: fadeIn 0.5s ease;
+}
+
+.screen.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================================
+   PREMIUM GLASS MORPHISM
+   ============================================ */
+.glass-morphism {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.04) 0%,
+    rgba(255, 255, 255, 0.01) 50%,
+    rgba(255, 255, 255, 0.03) 100%
+  );
+  backdrop-filter: blur(40px) saturate(150%);
+  -webkit-backdrop-filter: blur(40px) saturate(150%);
+  border: 1px solid var(--glass-border);
+  border-radius: 28px;
+  box-shadow: var(--glass-shadow);
+  position: relative;
+  overflow: hidden;
+  transition: var(--transition-smooth);
+}
+
+/* Top highlight line */
+.glass-morphism::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.25),
+    rgba(255, 255, 255, 0.4),
+    rgba(255, 255, 255, 0.25),
+    transparent
+  );
+  opacity: 0.8;
+}
+
+/* Bottom subtle glow */
+.glass-morphism::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 20%;
+  right: 20%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0, 212, 255, 0.2),
+    transparent
+  );
+}
+
+/* ============================================
+   OVERRIDE: Force consistent styling on login page
+   (No hover effects, no blue tint)
+   ============================================ */
+.login-root .glass-morphism,
+.login-root .login-container,
+.login-root .login-container.glass-morphism {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.04) 0%,
+    rgba(255, 255, 255, 0.01) 50%,
+    rgba(255, 255, 255, 0.03) 100%
+  ) !important;
+  border: 1px solid rgba(255, 255, 255, 0.06) !important;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4), 0 1px 2px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04), 0 0 60px rgba(0, 212, 255, 0.03) !important;
+  transform: none !important;
+}
+
+.login-root .glass-morphism:hover,
+.login-root .login-container:hover,
+.login-root .login-container.glass-morphism:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.04) 0%,
+    rgba(255, 255, 255, 0.01) 50%,
+    rgba(255, 255, 255, 0.03) 100%
+  ) !important;
+  border: 1px solid rgba(255, 255, 255, 0.06) !important;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4), 0 1px 2px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04), 0 0 60px rgba(0, 212, 255, 0.03) !important;
+  transform: none !important;
+}
+
+/* ============================================
+   AURORA TEXT EFFECTS
+   ============================================ */
+.aurora-text {
+  background: linear-gradient(
+    135deg,
+    var(--accent-cyan) 0%,
+    var(--accent-teal) 50%,
+    var(--aurora-blue) 100%
+  );
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  animation: shimmer 10s ease-in-out infinite;
+  filter: drop-shadow(0 1px 2px rgba(0, 212, 255, 0.15));
+}
+
+@keyframes shimmer {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.glow-text {
+  color: var(--text-primary);
+  text-shadow: 0 0 8px rgba(0, 212, 255, 0.3);
+}
+
+/* ============================================
+   AURORA BUTTON - Premium Glass Button
+   ============================================ */
+.aurora-button {
+  position: relative;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 212, 255, 0.08) 0%,
+    rgba(0, 255, 212, 0.04) 50%,
+    rgba(0, 212, 255, 0.08) 100%
+  );
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  color: var(--text-primary);
+  padding: 16px 32px;
+  border-radius: 14px;
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  overflow: hidden;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.aurora-button.primary-btn {
+  background: linear-gradient(
+    135deg,
+    rgba(0, 212, 255, 0.2) 0%,
+    rgba(0, 255, 212, 0.15) 100%
+  );
+  border-color: rgba(0, 212, 255, 0.4);
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.15);
+}
+
+.aurora-button.secondary-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.aurora-button.secondary-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.aurora-button:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(0, 212, 255, 0.15) 0%,
+    rgba(0, 255, 212, 0.08) 50%,
+    rgba(0, 212, 255, 0.12) 100%
+  );
+  border-color: rgba(0, 212, 255, 0.4);
+  box-shadow: 0 4px 20px rgba(0, 212, 255, 0.25), 0 2px 8px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.aurora-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 10px rgba(0, 212, 255, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.aurora-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Shimmer effect on hover */
+.aurora-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  transition: left 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.aurora-button:hover::before {
+  left: 100%;
+}
+
+/* Inner glow accent */
+.aurora-button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.05) 0%,
+    transparent 100%
+  );
+  border-radius: 14px 14px 0 0;
+  pointer-events: none;
+}
+
+/* Login Screen */
+#login-screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  min-height: 100dvh;
+  position: relative;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Root container for login page */
+.login-root {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* ============================================
+   LOGIN CONTAINER - Premium Glass Card
+   ============================================ */
+.login-container {
+  padding: 44px 36px;
+  width: 100%;
+  max-width: 420px;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  margin: auto;
+  flex-shrink: 0;
+
+  /* Subtle shadow without excessive glow */
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4), 0 1px 2px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04), 0 0 60px rgba(0, 212, 255, 0.03);
+}
+
+/* NO hover effect - keeps container stable */
+
+/* ============================================
+   LOGIN HEADER
+   ============================================ */
+.login-header {
+  margin-bottom: 8px;
+}
+
+.login-header h1 {
+  font-size: 2.25rem;
+  margin-bottom: 10px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  color: var(--text-secondary);
+  margin-bottom: 32px;
+  font-size: 0.875rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  opacity: 0.9;
+}
+
+/* ============================================
+   TAB SELECTOR - Premium Pill Tabs
+   ============================================ */
+.tab-selector {
+  display: flex;
+  margin-bottom: 32px;
+  border-radius: 50px;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 5px;
+  position: relative;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3),
+    0 1px 0 rgba(255, 255, 255, 0.03);
+}
+
+.tab-btn {
+  flex: 1;
+  padding: 13px 28px;
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  font-weight: 500;
+  font-size: 14px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+  border-radius: 50px;
+  letter-spacing: 0.02em;
+}
+
+.tab-btn:hover:not(.active) {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.tab-btn.active {
+  background: linear-gradient(
+    135deg,
+    rgba(0, 212, 255, 0.18) 0%,
+    rgba(0, 255, 212, 0.1) 100%
+  );
+  color: var(--accent-cyan);
+  text-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(0, 212, 255, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* ============================================
+   LOGIN FORM
+   ============================================ */
+.login-form {
+  margin-bottom: 24px;
+}
+
+.input-group {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+/* ============================================
+   AURORA INPUT - Premium Glass Input
+   ============================================ */
+.aurora-input {
+  width: 100%;
+  padding: 16px 20px;
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 14px;
+  color: var(--text-primary);
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  transition: var(--transition-smooth);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2),
+    0 1px 0 rgba(255, 255, 255, 0.02);
+}
+
+.aurora-input::placeholder {
+  color: var(--text-muted);
+  font-weight: 400;
+  opacity: 0.8;
+}
+
+.aurora-input:focus {
+  outline: none;
+  border-color: rgba(0, 212, 255, 0.4);
+  background: rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.1), 0 0 20px rgba(0, 212, 255, 0.15),
+    inset 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Autofill styling */
+.aurora-input:-webkit-autofill,
+.aurora-input:-webkit-autofill:hover,
+.aurora-input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 1000px rgba(10, 10, 15, 0.95) inset,
+    0 0 0 3px rgba(0, 212, 255, 0.1);
+  -webkit-text-fill-color: var(--text-primary);
+  caret-color: var(--text-primary);
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+.role-selector {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 32px;
+  justify-content: center;
+}
+
+.role-option {
+  position: relative;
+  cursor: pointer;
+}
+
+.role-option input[type="radio"] {
+  display: none;
+}
+
+.role-option label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.role-option input[type="radio"]:checked + label {
+  background: linear-gradient(
+    45deg,
+    rgba(0, 212, 255, 0.15),
+    rgba(0, 255, 212, 0.1)
+  );
+  border-color: var(--accent-cyan);
+  color: var(--text-primary);
+  box-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
+}
+
+.login-btn {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.biometric-preview {
+  text-align: center;
+  margin: 24px 0;
+  padding: 20px;
+  background: rgba(0, 212, 255, 0.05);
+  border: 1px solid rgba(0, 212, 255, 0.1);
+  border-radius: 12px;
+}
+
+.fingerprint-icon {
+  color: var(--accent-cyan);
+  margin: 0 auto;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+.form-toggle {
+  text-align: center;
+  margin-top: 24px;
+}
+
+.toggle-btn {
+  background: none;
+  border: none;
+  color: var(--accent-cyan);
+  cursor: pointer;
+  font-size: 14px;
+  text-decoration: underline;
+  transition: all 0.3s ease;
+}
+
+.toggle-btn:hover {
+  color: var(--text-primary);
+  text-shadow: 0 0 10px rgba(0, 212, 255, 0.4);
+}
+
+/* Biometric Login Interface */
+.biometric-login-panel {
+  text-align: center;
+  margin: 24px 0;
+  padding: 24px;
+  background: rgba(0, 212, 255, 0.05);
+  border: 1px solid rgba(0, 212, 255, 0.1);
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+}
+
+.biometric-header h3 {
+  margin: 0 0 8px 0;
+  font-size: 1.2rem;
+}
+
+.biometric-header p {
+  margin: 0 0 30px 0;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.biometric-scanner-mini {
+  position: relative;
+  width: 160px;
+  height: 160px;
+  margin: 0 auto 30px;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 212, 255, 0.1),
+    rgba(0, 255, 212, 0.1)
+  );
+  border: 3px solid transparent;
+  border-radius: 50%;
+  overflow: hidden;
+  background-clip: padding-box;
+}
+
+.biometric-scanner-mini::before {
+  content: "";
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  background: linear-gradient(
+    45deg,
+    var(--accent-cyan),
+    var(--accent-teal),
+    var(--aurora-blue),
+    var(--accent-cyan)
+  );
+  border-radius: 50%;
+  z-index: -1;
+  animation: rotateBorder 3s linear infinite;
+}
+
+@keyframes rotateBorder {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.biometric-scanner-mini::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(
+    circle,
+    rgba(0, 212, 255, 0.2) 0%,
+    transparent 50%
+  );
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.scanner-animation {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.scan-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0, 255, 212, 0.8),
+    var(--accent-cyan),
+    rgba(0, 255, 212, 0.8),
+    transparent
+  );
+  animation: scanMove 2.5s ease-in-out infinite;
+  box-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+}
+
+@keyframes scanMove {
+  0% {
+    transform: translateY(0) scaleX(0.8);
+    opacity: 0;
+  }
+  50% {
+    transform: translateY(80px) scaleX(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(160px) scaleX(0.8);
+    opacity: 0;
+  }
+}
+
+/* Status Display Below Scanner */
+.biometric-status-display {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.biometric-status-display .status-text {
+  font-size: 0.95rem;
+  color: var(--accent-cyan);
+  font-weight: 600;
+  margin-bottom: 12px;
+  min-height: 24px;
+  line-height: 1.4;
+}
+
+.biometric-status-display .attempt-counter {
+  font-size: 0.85rem;
+  color: rgba(255, 193, 7, 0.9);
+  font-weight: 600;
+  background: rgba(255, 193, 7, 0.1);
+  border: 1px solid rgba(255, 193, 7, 0.2);
+  border-radius: 8px;
+  padding: 6px 14px;
+  display: inline-block;
+  margin-top: 8px;
+}
+
+.biometric-status-display .fallback-notice {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  font-style: italic;
+  margin-top: 8px;
+}
+
+/* Help Message */
+.help-message {
+  text-align: center;
+  margin-top: 16px;
+  padding: 10px 16px;
+  background: rgba(255, 193, 7, 0.1);
+  border: 1px solid rgba(255, 193, 7, 0.2);
+  border-radius: 8px;
+  font-size: 0.85rem;
+}
+
+/* Error Message - Compact Red Style */
+.help-message.error-message {
+  padding: 8px 14px !important;
+  margin-top: 12px !important;
+  background: rgba(220, 38, 38, 0.15) !important;
+  border: 1px solid rgba(248, 113, 113, 0.35) !important;
+  color: #fca5a5 !important;
+  font-size: 0.82rem !important;
+  line-height: 1.3 !important;
+  border-radius: 6px !important;
+  max-height: 50px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-teacher-msg {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.contact-teacher-msg strong {
+  color: var(--accent-cyan);
+}
+
+/* Background Animations */
+.background-animations {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.grid-lines {
+  background-image: linear-gradient(rgba(0, 212, 170, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 212, 170, 0.1) 1px, transparent 1px);
+  background-size: 50px 50px;
+  width: 100%;
+  height: 100%;
+  animation: gridMove 20s linear infinite;
+}
+
+@keyframes gridMove {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(50px, 50px);
+  }
+}
+
+.floating-particles {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.floating-particles::before,
+.floating-particles::after {
+  content: "";
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: var(--accent-cyan);
+  border-radius: 50%;
+  animation: float 6s ease-in-out infinite;
+  box-shadow: 0 0 10px var(--accent-cyan);
+}
+
+.floating-particles::before {
+  top: 20%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.floating-particles::after {
+  top: 60%;
+  right: 15%;
+  animation-delay: 3s;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(180deg);
+  }
+}
+
+/* Dashboard Navigation */
+.dashboard-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.nav-brand h2 {
+  font-size: 1.5rem;
+}
+
+.nav-controls {
+  display: flex;
+  gap: 10px;
+}
+
+.icon-btn {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
+.icon-btn:hover {
+  background: var(--accent-cyan);
+  color: var(--bg-primary);
+  box-shadow: var(--neon-glow);
+}
+
+/* Dashboard Layout */
+.dashboard-main {
+  padding: 0 20px 20px;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.teacher-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  padding: 25px;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card h3 {
+  color: var(--accent-cyan);
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+}
+
+/* Stats Components */
+.stats-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.circular-progress {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: conic-gradient(
+    var(--accent-cyan) 0deg 334deg,
+    rgba(255, 255, 255, 0.1) 334deg
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: progressSpin 2s ease-in-out;
+}
+
+@keyframes progressSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.inner-circle {
+  width: 90px;
+  height: 90px;
+  background: var(--bg-primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.percentage {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--accent-cyan);
+}
+
+.streak-counter {
+  text-align: center;
+}
+
+.streak-number {
+  display: block;
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--accent-pink);
+  text-shadow: 0 0 20px var(--accent-pink);
+}
+
+.streak-label {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+/* Session Info */
+.session-info {
+  text-align: center;
+}
+
+.session-info h4 {
+  color: var(--accent-cyan);
+  margin-bottom: 10px;
+}
+
+.countdown {
+  margin-top: 15px;
+  padding: 15px;
+  background: rgba(0, 212, 170, 0.1);
+  border-radius: 10px;
+  border: 1px solid var(--accent-cyan);
+}
+
+#countdown-timer {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--accent-cyan);
+  font-family: "Courier New", monospace;
+}
+
+/* Charts */
+.chart-card canvas {
+  max-height: 300px;
+}
+
+/* Biometric Button */
+.biometric-button {
+  position: relative;
+  width: 100%;
+  padding: 30px;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 212, 170, 0.1),
+    rgba(255, 107, 157, 0.1)
+  );
+  border: 2px solid var(--accent-cyan);
+  border-radius: 15px;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.biometric-button:hover {
+  transform: scale(1.02);
+  box-shadow: var(--neon-glow);
+}
+
+.biometric-icon {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.scan-lines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--accent-cyan) 50%,
+    transparent 100%
+  );
+  opacity: 0.3;
+  animation: scanMove 2s linear infinite;
+}
+
+@keyframes scanMove {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Teacher Dashboard Specific */
+.session-card {
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.session-stats {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.confidence-badge {
+  background: var(--accent-cyan);
+  color: var(--bg-primary);
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.live-feed {
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.student-list {
+  margin-top: 15px;
+}
+
+.student-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  margin-bottom: 8px;
+}
+
+.student-actions {
+  display: flex;
+  gap: 5px;
+}
+
+.edit-btn,
+.delete-btn {
+  width: 30px;
+  height: 30px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.edit-btn {
+  background: var(--accent-cyan);
+}
+
+.delete-btn {
+  background: var(--accent-pink);
+}
+
+/* Floating Action Button */
+.fab-container {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 1000;
+}
+
+.fab {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--accent-cyan);
+  border: none;
+  color: var(--bg-primary);
+  font-size: 1.5rem;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(0, 212, 170, 0.4);
+  transition: all 0.3s ease;
+}
+
+.fab:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 25px rgba(0, 212, 170, 0.6);
+}
+
+.fab-menu {
+  position: absolute;
+  bottom: 70px;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.fab-container.active .fab-menu {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.fab-item {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: var(--accent-pink);
+  border: none;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  transform: scale(0);
+}
+
+.fab-container.active .fab-item {
+  transform: scale(1);
+}
+
+/* ============================================
+   BIOMETRIC MODAL - Elegant Design
+   ============================================ */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 2000;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal.active {
+  display: flex;
+}
+
+.modal-content {
+  padding: 36px;
+  width: 90%;
+  max-width: 420px;
+  text-align: center;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.04) 0%,
+    rgba(255, 255, 255, 0.01) 100%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* Biometric Scanner - Refined */
+.biometric-scanner {
+  padding: 8px 0;
+}
+
+.face-frame {
+  position: relative;
+  width: 240px;
+  height: 240px;
+  margin: 0 auto 24px;
+  border: 2px solid rgba(0, 212, 255, 0.4);
+  border-radius: 20px;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.scanning-overlay {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 212, 255, 0.05) 0%,
+    rgba(0, 255, 212, 0.03) 100%
+  );
+}
+
+.neon-halo {
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  right: -8px;
+  bottom: -8px;
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  border-radius: 24px;
+  animation: pulseHalo 3s ease-in-out infinite;
+}
+
+@keyframes pulseHalo {
+  0%,
+  100% {
+    box-shadow: 0 0 10px rgba(0, 212, 255, 0.15);
+  }
+  50% {
+    box-shadow: 0 0 15px rgba(0, 212, 255, 0.25);
+  }
+}
+
+.breathing-outline {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
+  border: 1px solid rgba(0, 212, 170, 0.6);
+  border-radius: 15px;
+  animation: breathe 3s ease-in-out infinite;
+}
+
+@keyframes breathe {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.scan-lines-animation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    var(--accent-cyan) 50%,
+    transparent 100%
+  );
+  opacity: 0.4;
+  animation: scanVertical 2s linear infinite;
+}
+
+@keyframes scanVertical {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+.particle-trails::before,
+.particle-trails::after {
+  content: "";
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: var(--accent-cyan);
+  border-radius: 50%;
+  animation: orbit 4s linear infinite;
+  box-shadow: 0 0 10px var(--accent-cyan);
+}
+
+.particle-trails::before {
+  top: 10%;
+  left: 10%;
+}
+
+.particle-trails::after {
+  bottom: 10%;
+  right: 10%;
+  animation-delay: 2s;
+}
+
+@keyframes orbit {
+  0% {
+    transform: rotate(0deg) translateX(50px) rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg) translateX(50px) rotate(-360deg);
+  }
+}
+
+.confidence-meter {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.confidence-wave {
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent-cyan), var(--accent-pink));
+  border-radius: 2px;
+  margin-bottom: 8px;
+  animation: waveProgress 3s ease-in-out infinite;
+}
+
+@keyframes waveProgress {
+  0% {
+    width: 0%;
+  }
+  50% {
+    width: 87%;
+  }
+  100% {
+    width: 95%;
+  }
+}
+
+.confidence-text {
+  font-size: 0.9rem;
+  color: var(--accent-cyan);
+}
+
+/* ============================================
+   BIOMETRIC PANEL STYLES
+   ============================================ */
+.biometric-login-panel {
+  padding: 8px 0 16px;
+}
+
+.biometric-header {
+  margin-bottom: 20px;
+}
+
+.biometric-header h3 {
+  font-size: 1.25rem;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.biometric-header p {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+/* Biometric Scanner Mini - Clean circle only */
+.biometric-scanner-mini {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 0;
+  background: transparent;
+  border: none;
+}
+
+.scanner-animation {
+  position: relative;
+  width: 90px;
+  height: 90px;
+  background: rgba(0, 212, 255, 0.04);
+  border: 2px solid rgba(0, 212, 255, 0.25);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.scan-line {
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--accent-cyan),
+    transparent
+  );
+  animation: scanMove 2s ease-in-out infinite;
+}
+
+@keyframes scanMove {
+  0%,
+  100% {
+    top: 0;
+    opacity: 0.5;
+  }
+  50% {
+    top: calc(100% - 2px);
+    opacity: 1;
+  }
+}
+
+.biometric-status {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  margin-bottom: 12px;
+}
+
+.biometric-preview-confidence {
+  position: relative;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.biometric-preview-confidence .confidence-wave {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent-cyan), var(--accent-teal));
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+.biometric-preview-confidence .confidence-text {
+  position: absolute;
+  right: 0;
+  top: -20px;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+/* Biometric Actions - Same Line Layout */
+.biometric-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+.biometric-actions .aurora-button {
+  flex: 1;
+  max-width: 160px;
+  padding: 14px 20px;
+  font-size: 14px;
+}
+
+/* Primary Button Variant */
+.aurora-button.primary-btn {
+  background: linear-gradient(
+    135deg,
+    rgba(0, 212, 255, 0.15) 0%,
+    rgba(0, 255, 212, 0.08) 100%
+  );
+  border-color: rgba(0, 212, 255, 0.3);
+}
+
+.aurora-button.primary-btn:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(0, 212, 255, 0.22) 0%,
+    rgba(0, 255, 212, 0.12) 100%
+  );
+  border-color: rgba(0, 212, 255, 0.5);
+}
+
+/* Secondary Button Variant */
+.aurora-button.secondary-btn {
+  background: rgba(255, 255, 255, 0.03);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.aurora-button.secondary-btn:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+/* Legacy fallback-btn - Reduced glow */
+.biometric-fallback {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+.fallback-btn {
+  padding: 15px 25px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.fallback-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+/* ============================================
+   RESPONSIVE DESIGN - Mobile First Approach
+   ============================================ */
+
+/* 
+ * Breakpoints:
+ * - Extra small (phones): 320px - 374px
+ * - Small (phones): 375px - 479px  
+ * - Medium (large phones): 480px - 599px
+ * - Tablet portrait: 600px - 767px
+ * - Tablet landscape: 768px - 1023px
+ * - Desktop: 1024px+
+ */
+
+/* ----------------------------------------
+   Base Mobile Styles (320px and up)
+   ---------------------------------------- */
+@media screen and (max-width: 1024px) {
+  .login-root {
+    min-height: 100vh;
+    min-height: 100dvh;
+    min-height: -webkit-fill-available;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  #login-screen {
+    padding: 16px;
+    min-height: 100vh;
+    min-height: 100dvh;
+    min-height: -webkit-fill-available;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+  }
+
+  .login-container {
+    margin: auto;
+  }
+}
+
+/* ----------------------------------------
+   Extra Small Devices (320px - 374px)
+   ---------------------------------------- */
+@media screen and (max-width: 374px) {
+  .login-container {
+    margin: auto;
+    width: calc(100% - 16px);
+    padding: 20px 16px;
+    border-radius: 20px;
+    max-width: 100%;
+  }
+
+  .login-header h1 {
+    font-size: 1.75rem;
+    margin-bottom: 6px;
+    line-height: 1.2;
+  }
+
+  .subtitle {
+    font-size: 0.75rem;
+    margin-bottom: 20px;
+    line-height: 1.4;
+  }
+
+  .tab-selector {
+    margin-bottom: 20px;
+    padding: 3px;
+  }
+
+  .tab-btn {
+    padding: 10px 16px;
+    font-size: 12px;
+    letter-spacing: 0.2px;
+  }
+
+  .aurora-input {
+    padding: 14px 16px;
+    font-size: 15px;
+    border-radius: 10px;
+  }
+
+  .input-group {
+    margin-bottom: 16px;
+  }
+
+  .aurora-button {
+    padding: 14px 20px;
+    font-size: 14px;
+    border-radius: 10px;
+  }
+
+  .login-btn {
+    margin-top: 16px;
+  }
+
+  .biometric-login-panel {
+    padding: 16px;
+    margin: 16px 0;
+    border-radius: 12px;
+  }
+
+  .biometric-header h3 {
+    font-size: 1rem;
+  }
+
+  .biometric-header p {
+    font-size: 0.8rem;
+    margin-bottom: 16px;
+  }
+
+  .biometric-scanner-mini {
+    width: 90px;
+    height: 90px;
+    margin-bottom: 16px;
+  }
+
+  .biometric-scanner-mini::after {
+    width: 60px;
+    height: 60px;
+  }
+
+  .help-message {
+    padding: 12px;
+    margin-top: 16px;
+    border-radius: 10px;
+  }
+
+  .contact-teacher-msg {
+    font-size: 0.8rem;
+    line-height: 1.4;
+  }
+
+  /* Modal adjustments for extra small */
+  .modal-content {
+    padding: 24px 16px;
+    width: 95%;
+    border-radius: 16px;
+  }
+
+  .face-frame {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 20px;
+    border-radius: 16px;
+  }
+
+  .fallback-btn {
+    padding: 12px 16px;
+    font-size: 13px;
+  }
+
+  .biometric-fallback {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .confidence-meter {
+    bottom: 12px;
+    left: 12px;
+    right: 12px;
+    padding: 8px;
+  }
+
+  .confidence-text {
+    font-size: 0.8rem;
+  }
+}
+
+/* ----------------------------------------
+   Small Phones (375px - 479px)
+   ---------------------------------------- */
+@media screen and (min-width: 375px) and (max-width: 479px) {
+  .login-container {
+    margin: auto;
+    width: calc(100% - 24px);
+    padding: 24px 20px;
+    border-radius: 22px;
+    max-width: 100%;
+  }
+
+  .login-header h1 {
+    font-size: 2rem;
+    margin-bottom: 8px;
+  }
+
+  .subtitle {
+    font-size: 0.8rem;
+    margin-bottom: 24px;
+  }
+
+  .tab-selector {
+    margin-bottom: 24px;
+  }
+
+  .tab-btn {
+    padding: 11px 20px;
+    font-size: 13px;
+  }
+
+  .aurora-input {
+    padding: 15px 18px;
+    font-size: 15px;
+  }
+
+  .input-group {
+    margin-bottom: 18px;
+  }
+
+  .aurora-button {
+    padding: 15px 24px;
+    font-size: 14px;
+  }
+
+  .biometric-login-panel {
+    padding: 18px;
+    margin: 18px 0;
+    border-radius: 14px;
+  }
+
+  .biometric-header h3 {
+    font-size: 1.05rem;
+  }
+
+  .biometric-header p {
+    font-size: 0.85rem;
+  }
+
+  .biometric-scanner-mini {
+    width: 100px;
+    height: 100px;
+  }
+
+  .biometric-scanner-mini::after {
+    width: 70px;
+    height: 70px;
+  }
+
+  .help-message {
+    padding: 14px;
+    margin-top: 18px;
+  }
+
+  .contact-teacher-msg {
+    font-size: 0.85rem;
+  }
+
+  /* Modal adjustments */
+  .modal-content {
+    padding: 28px 20px;
+    width: 92%;
+    border-radius: 18px;
+  }
+
+  .face-frame {
+    width: 220px;
+    height: 220px;
+    margin-bottom: 24px;
+  }
+
+  .fallback-btn {
+    padding: 13px 20px;
+    font-size: 14px;
+  }
+}
+
+/* ----------------------------------------
+   Medium Phones (480px - 599px)
+   ---------------------------------------- */
+@media screen and (min-width: 480px) and (max-width: 599px) {
+  .login-container {
+    margin: auto;
+    padding: 28px 24px;
+    max-width: 420px;
+  }
+
+  .login-header h1 {
+    font-size: 2.25rem;
+  }
+
+  .subtitle {
+    font-size: 0.85rem;
+    margin-bottom: 26px;
+  }
+
+  .tab-selector {
+    margin-bottom: 26px;
+  }
+
+  .tab-btn {
+    padding: 12px 24px;
+    font-size: 14px;
+  }
+
+  .aurora-input {
+    padding: 15px 18px;
+    font-size: 16px;
+  }
+
+  .input-group {
+    margin-bottom: 20px;
+  }
+
+  .aurora-button {
+    padding: 15px 28px;
+  }
+
+  .biometric-login-panel {
+    padding: 20px;
+    margin: 20px 0;
+  }
+
+  .biometric-header h3 {
+    font-size: 1.1rem;
+  }
+
+  .biometric-scanner-mini {
+    width: 110px;
+    height: 110px;
+  }
+
+  /* Modal adjustments */
+  .modal-content {
+    padding: 32px 24px;
+    width: 90%;
+    max-width: 420px;
+  }
+
+  .face-frame {
+    width: 240px;
+    height: 240px;
+  }
+}
+
+/* ----------------------------------------
+   Tablet Portrait (600px - 767px)
+   ---------------------------------------- */
+@media screen and (min-width: 600px) and (max-width: 767px) {
+  .login-container {
+    margin: 20px auto;
+    padding: 32px 28px;
+    max-width: 440px;
+  }
+
+  .login-header h1 {
+    font-size: 2.5rem;
+  }
+
+  .subtitle {
+    font-size: 0.88rem;
+    margin-bottom: 28px;
+  }
+
+  .tab-selector {
+    margin-bottom: 28px;
+  }
+
+  .tab-btn {
+    padding: 12px 26px;
+    font-size: 14px;
+  }
+
+  .aurora-input {
+    padding: 16px 20px;
+    font-size: 16px;
+  }
+
+  .input-group {
+    margin-bottom: 22px;
+  }
+
+  .aurora-button {
+    padding: 16px 30px;
+    font-size: 15px;
+  }
+
+  .biometric-login-panel {
+    padding: 22px;
+  }
+
+  .biometric-header h3 {
+    font-size: 1.15rem;
+  }
+
+  .biometric-scanner-mini {
+    width: 115px;
+    height: 115px;
+  }
+
+  /* Modal adjustments */
+  .modal-content {
+    padding: 36px 28px;
+    max-width: 460px;
+  }
+
+  .face-frame {
+    width: 260px;
+    height: 260px;
+  }
+}
+
+/* ----------------------------------------
+   Tablet Landscape (768px - 1023px)
+   ---------------------------------------- */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .login-container {
+    margin: 24px auto;
+    padding: 36px 32px;
+    max-width: 450px;
+  }
+
+  .login-header h1 {
+    font-size: 2.75rem;
+  }
+
+  .subtitle {
+    font-size: 0.9rem;
+    margin-bottom: 30px;
+  }
+
+  .biometric-scanner-mini {
+    width: 118px;
+    height: 118px;
+  }
+
+  /* Modal adjustments */
+  .modal-content {
+    padding: 38px 32px;
+    max-width: 480px;
+  }
+
+  .face-frame {
+    width: 280px;
+    height: 280px;
+  }
+
+  /* Dashboard grid for tablets */
+  .dashboard-grid,
+  .teacher-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ----------------------------------------
+   Desktop (1024px and up)
+   ---------------------------------------- */
+@media screen and (min-width: 1024px) {
+  .login-container {
+    padding: 40px;
+    max-width: 450px;
+  }
+
+  .login-header h1 {
+    font-size: 3rem;
+  }
+
+  .biometric-scanner-mini {
+    width: 120px;
+    height: 120px;
+  }
+
+  /* Modal adjustments */
+  .modal-content {
+    padding: 40px;
+    max-width: 500px;
+  }
+
+  .face-frame {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+/* ----------------------------------------
+   Touch Device Optimizations
+   ---------------------------------------- */
+@media (hover: none) and (pointer: coarse) {
+  /* Larger touch targets for mobile */
+  .tab-btn {
+    min-height: 44px;
+  }
+
+  .aurora-input {
+    min-height: 48px;
+    font-size: 16px; /* Prevents iOS zoom on focus */
+  }
+
+  .aurora-button {
+    min-height: 48px;
+  }
+
+  .fallback-btn {
+    min-height: 44px;
+  }
+
+  /* Remove hover effects that don't work on touch */
+  .aurora-button:hover {
+    transform: none;
+  }
+
+  .aurora-button:active {
+    transform: scale(0.98);
+    background: linear-gradient(
+      45deg,
+      rgba(0, 212, 255, 0.18),
+      rgba(0, 255, 212, 0.18)
+    );
+  }
+
+  .tab-btn:active:not(.active) {
+    background: rgba(255, 255, 255, 0.08);
+  }
+}
+
+/* ----------------------------------------
+   Landscape Orientation (Phone)
+   ---------------------------------------- */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+  #login-screen {
+    padding: 12px;
+    align-items: flex-start;
+    overflow-y: auto;
+  }
+
+  .login-container {
+    margin: 8px auto;
+    padding: 20px 24px;
+  }
+
+  .login-header h1 {
+    font-size: 1.75rem;
+    margin-bottom: 4px;
+  }
+
+  .subtitle {
+    margin-bottom: 16px;
+    font-size: 0.8rem;
+  }
+
+  .tab-selector {
+    margin-bottom: 16px;
+  }
+
+  .tab-btn {
+    padding: 8px 20px;
+  }
+
+  .input-group {
+    margin-bottom: 12px;
+  }
+
+  .aurora-input {
+    padding: 12px 16px;
+  }
+
+  .aurora-button {
+    padding: 12px 24px;
+  }
+
+  .login-btn {
+    margin-top: 12px;
+  }
+
+  .biometric-login-panel {
+    padding: 12px;
+    margin: 12px 0;
+  }
+
+  .biometric-scanner-mini {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 12px;
+  }
+
+  .help-message {
+    padding: 10px;
+    margin-top: 12px;
+  }
+}
+
+/* ----------------------------------------
+   High DPI / Retina Displays
+   ---------------------------------------- */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .glass-morphism {
+    border-width: 0.5px;
+  }
+
+  .aurora-input {
+    border-width: 0.5px;
+  }
+}
+
+/* ----------------------------------------
+   Reduced Motion Preference
+   ---------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .grid-lines {
+    animation: none;
+  }
+
+  body::after {
+    animation: none;
+  }
+
+  .biometric-scanner-mini::before {
+    animation: none;
+  }
+
+  .scan-line {
+    animation: none;
+  }
+}
+
+/* ----------------------------------------
+   Dark Mode Preference (Already default)
+   ---------------------------------------- */
+@media (prefers-color-scheme: light) {
+  /* Keep dark theme regardless - this is a stylistic choice */
+  :root {
+    --bg-primary: #0a0a0f;
+    --bg-secondary: #1a1a2e;
+  }
+}
+
+/* ----------------------------------------
+   Print Styles (hide decorations)
+   ---------------------------------------- */
+@media print {
+  .background-animations,
+  .grid-lines,
+  .floating-particles {
+    display: none !important;
+  }
+
+  body::before,
+  body::after {
+    display: none !important;
+  }
+
+  .login-container {
+    box-shadow: none;
+    border: 1px solid #ccc;
+  }
+}
+
+/* ----------------------------------------
+   Safe Area Insets (Notched Phones)
+   ---------------------------------------- */
+@supports (padding: max(0px)) {
+  #login-screen {
+    padding-left: max(16px, env(safe-area-inset-left));
+    padding-right: max(16px, env(safe-area-inset-right));
+    padding-bottom: max(16px, env(safe-area-inset-bottom));
+  }
+}
+
+/* ----------------------------------------
+   Fix for iOS Input Zoom
+   ---------------------------------------- */
+@media screen and (max-width: 767px) {
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="date"],
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
+}
+
+/* ----------------------------------------
+   Dashboard Responsive (Non-Login)
+   ---------------------------------------- */
+@media screen and (max-width: 768px) {
+  .dashboard-grid,
+  .teacher-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stats-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .session-stats {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .circular-progress {
+    width: 100px;
+    height: 100px;
+  }
+
+  .inner-circle {
+    width: 75px;
+    height: 75px;
+  }
+
+  .streak-number {
+    font-size: 2rem;
+  }
+
+  .fab-container {
+    bottom: 20px;
+    right: 20px;
+  }
+
+  .fab {
+    width: 54px;
+    height: 54px;
+    font-size: 1.3rem;
+  }
+
+  .dashboard-nav {
+    padding: 16px;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .nav-brand h2 {
+    font-size: 1.3rem;
+  }
+
+  .icon-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+
+  .card {
+    padding: 20px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .dashboard-nav {
+    padding: 12px;
+  }
+
+  .nav-brand h2 {
+    font-size: 1.1rem;
+  }
+
+  .icon-btn {
+    width: 36px;
+    height: 36px;
+  }
+
+  .card {
+    padding: 16px;
+  }
+
+  .card h3 {
+    font-size: 1rem;
+  }
+}

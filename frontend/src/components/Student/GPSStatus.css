@@ -1,0 +1,211 @@
+/* ============================================
+   GPS STATUS COMPONENT
+   ============================================ */
+
+.gps-status {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px 20px;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.gps-status.success {
+  border: 1px solid rgba(16, 185, 129, 0.5);
+  background: rgba(16, 185, 129, 0.1);
+}
+
+.gps-status.warning {
+  border: 1px solid rgba(251, 191, 36, 0.5);
+  background: rgba(251, 191, 36, 0.1);
+}
+
+.gps-status.error {
+  border: 1px solid rgba(239, 68, 68, 0.5);
+  background: rgba(239, 68, 68, 0.1);
+}
+
+.gps-status.loading {
+  border: 1px solid rgba(0, 212, 255, 0.5);
+  background: rgba(0, 212, 255, 0.1);
+}
+
+/* ============================================
+   STATUS ICON
+   ============================================ */
+
+.status-icon {
+  font-size: 1.8rem;
+  flex-shrink: 0;
+}
+
+.success-icon {
+  color: #10b981;
+  filter: drop-shadow(0 0 6px rgba(16, 185, 129, 0.5));
+}
+
+.warning-icon {
+  color: #fbbf24;
+  filter: drop-shadow(0 0 6px rgba(251, 191, 36, 0.5));
+  animation: pulse-warning 2s ease-in-out infinite;
+}
+
+.error-icon {
+  color: #ef4444;
+  filter: drop-shadow(0 0 6px rgba(239, 68, 68, 0.5));
+}
+
+@keyframes pulse-warning {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.1);
+  }
+}
+
+/* ============================================
+   STATUS INFO
+   ============================================ */
+
+.status-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.status-title {
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 1rem;
+}
+
+.status-message {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+}
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+
+.refresh-button,
+.retry-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  color: var(--text-primary);
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.refresh-button {
+  padding: 8px;
+}
+
+.refresh-button:hover,
+.retry-button:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.refresh-button:active,
+.retry-button:active {
+  transform: translateY(0);
+}
+
+.button-icon {
+  font-size: 1.1rem;
+}
+
+.refresh-button:hover .button-icon,
+.retry-button:hover .button-icon {
+  animation: spin 0.6s linear;
+}
+
+/* ============================================
+   LOADING SPINNER
+   ============================================ */
+
+.spinner-small {
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(0, 212, 255, 0.2);
+  border-top-color: var(--accent-cyan);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ============================================
+   RESPONSIVE - MOBILE
+   ============================================ */
+
+@media (max-width: 768px) {
+  .gps-status {
+    padding: 12px 16px;
+    gap: 12px;
+  }
+
+  .status-icon {
+    font-size: 1.5rem;
+  }
+
+  .status-title {
+    font-size: 0.9rem;
+  }
+
+  .status-message {
+    font-size: 0.75rem;
+  }
+
+  .retry-button span {
+    display: none;
+  }
+
+  .retry-button {
+    padding: 8px;
+  }
+
+  .button-icon {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .gps-status {
+    padding: 10px 14px;
+  }
+
+  .status-icon {
+    font-size: 1.3rem;
+  }
+
+  .status-title {
+    font-size: 0.85rem;
+  }
+
+  .status-message {
+    font-size: 0.7rem;
+  }
+}

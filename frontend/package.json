@@ -1,0 +1,83 @@
+{
+  "name": "attendsmart",
+  "version": "1.0.0",
+  "description": "Proxy-proof biometric attendance system",
+  "dependencies": {
+    "@capacitor-community/background-geolocation": "^1.2.17",
+    "@capacitor-community/bluetooth-le": "^6.0.1",
+    "@capacitor-community/sqlite": "^6.0.2",
+    "@capacitor/android": "^6.1.0",
+    "@capacitor/app": "^6.0.0",
+    "@capacitor/camera": "^6.0.0",
+    "@capacitor/cli": "^6.1.0",
+    "@capacitor/core": "^6.1.0",
+    "@capacitor/device": "^6.0.0",
+    "@capacitor/filesystem": "^6.0.0",
+    "@capacitor/geolocation": "^6.0.0",
+    "@capacitor/haptics": "^6.0.0",
+    "@capacitor/ios": "^6.1.0",
+    "@capacitor/local-notifications": "^6.0.1",
+    "@capacitor/network": "^6.0.0",
+    "@capacitor/preferences": "^6.0.0",
+    "@capacitor/splash-screen": "^6.0.0",
+    "@capacitor/status-bar": "^6.0.0",
+    "@fullcalendar/daygrid": "^6.1.19",
+    "@fullcalendar/interaction": "^6.1.19",
+    "@fullcalendar/react": "^6.1.19",
+    "@fullcalendar/timegrid": "^6.1.19",
+    "@simplewebauthn/browser": "^13.2.2",
+    "@tanstack/react-query": "^5.62.8",
+    "@tanstack/react-query-persist-client": "^5.62.8",
+    "axios": "^1.6.2",
+    "capacitor-ibeacon": "^0.1.0",
+    "capacitor-native-biometric": "^4.2.2",
+    "capacitor-secure-storage-plugin": "^0.12.0",
+    "chart.js": "^4.4.0",
+    "crypto-js": "^4.2.0",
+    "framer-motion": "^10.18.0",
+    "html2canvas": "^1.4.1",
+    "idb-keyval": "^6.2.1",
+    "prop-types": "^15.8.1",
+    "qrcode.react": "^4.2.0",
+    "react": "^18.2.0",
+    "react-chartjs-2": "^5.2.0",
+    "react-dom": "^18.2.0",
+    "react-icons": "^5.5.0",
+    "react-router-dom": "^6.30.2",
+    "recharts": "^3.4.1",
+    "socket.io-client": "^4.6.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "cap:add:android": "npx cap add android",
+    "cap:add:ios": "npx cap add ios",
+    "cap:sync": "npm run build && npx cap sync",
+    "cap:sync:android": "npm run build && npx cap sync android",
+    "cap:sync:ios": "npm run build && npx cap sync ios",
+    "android:open": "npx cap open android",
+    "android:run": "npx cap run android",
+    "android:run:live": "npx cap run android --livereload --external",
+    "android:build": "cd android && ./gradlew assembleDebug && cd ..",
+    "android:build:release": "cd android && ./gradlew assembleRelease && cd ..",
+    "ios:open": "npx cap open ios",
+    "ios:run": "npx cap run ios"
+  },
+  "devDependencies": {
+    "react-scripts": "^5.0.1",
+    "typescript": "^5.9.3"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

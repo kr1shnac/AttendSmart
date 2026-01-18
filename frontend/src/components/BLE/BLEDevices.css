@@ -1,0 +1,239 @@
+.ble-devices {
+  padding: 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.devices-container {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.devices-header {
+  padding: 30px;
+  text-align: center;
+}
+
+.devices-header h3 {
+  color: var(--accent-cyan);
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.add-device-button {
+  margin-top: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 24px;
+  background: linear-gradient(45deg, var(--accent-cyan), var(--accent-teal));
+  color: var(--bg-primary);
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.add-device-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(0, 212, 255, 0.4);
+}
+
+.devices-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 20px;
+}
+
+.device-card {
+  padding: 25px;
+  transition: all 0.3s ease;
+}
+
+.device-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 212, 255, 0.2);
+}
+
+.device-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.device-icon {
+  font-size: 2.5rem;
+}
+
+.device-title {
+  flex: 1;
+}
+
+.device-title h4 {
+  color: var(--text-primary);
+  font-size: 1.1rem;
+  margin-bottom: 5px;
+}
+
+.device-type {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  text-transform: capitalize;
+}
+
+.device-status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.device-status.active {
+  background: rgba(16, 185, 129, 0.2);
+  color: var(--aurora-green);
+}
+
+.device-status.inactive {
+  background: rgba(239, 68, 68, 0.2);
+  color: #ef4444;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.device-info {
+  margin-bottom: 20px;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.info-label {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.info-value {
+  color: var(--text-primary);
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.battery-indicator {
+  color: var(--aurora-green);
+}
+
+.device-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.stat {
+  text-align: center;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+}
+
+.stat-value {
+  display: block;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--accent-cyan);
+  margin-bottom: 5px;
+}
+
+.stat-label {
+  display: block;
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+}
+
+.device-actions {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.action-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 15px;
+  border-radius: 10px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.action-btn.view {
+  background: rgba(0, 212, 255, 0.1);
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  color: var(--accent-cyan);
+}
+
+.action-btn.view:hover {
+  background: rgba(0, 212, 255, 0.2);
+}
+
+.action-btn.delete {
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #ef4444;
+}
+
+.action-btn.delete:hover {
+  background: rgba(239, 68, 68, 0.2);
+}
+
+.no-devices {
+  padding: 60px 40px;
+  text-align: center;
+}
+
+.no-devices-icon {
+  font-size: 5rem;
+  display: block;
+  margin-bottom: 20px;
+  opacity: 0.5;
+}
+
+.no-devices h3 {
+  color: var(--text-primary);
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.no-devices p {
+  color: var(--text-secondary);
+  margin-bottom: 25px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .devices-grid {
+    grid-template-columns: 1fr;
+  }
+}

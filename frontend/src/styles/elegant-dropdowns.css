@@ -1,0 +1,130 @@
+/* ================================================
+   CLEAN & ELEGANT DROPDOWN STYLING
+   ================================================ */
+
+select {
+  /* Remove default styles */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  /* Layout */
+  width: 100%;
+  padding: 14px 45px 14px 18px;
+
+  /* Background */
+  background: rgba(15, 15, 25, 0.6);
+
+  /* Custom Arrow - Simple & Clean */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1L6 6L11 1' stroke='%2300d4ff' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  background-size: 12px;
+
+  /* Border - Subtle Cyan */
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  border-radius: 10px;
+
+  /* Text */
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 500;
+
+  /* Interaction */
+  cursor: pointer;
+  outline: none;
+  transition: all 0.3s ease;
+
+  /* Subtle Shadow */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Hover */
+select:hover {
+  background: rgba(20, 20, 30, 0.7);
+  border-color: rgba(0, 212, 255, 0.5);
+  box-shadow: 0 4px 16px rgba(0, 212, 255, 0.15);
+}
+
+/* Focus */
+select:focus {
+  background: rgba(25, 25, 35, 0.8);
+  border-color: #00d4ff;
+  box-shadow: 0 0 0 3px rgba(0, 212, 255, 0.1);
+}
+
+/* Disabled */
+select:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: rgba(30, 30, 40, 0.4);
+}
+
+/* ================================================
+   DROPDOWN OPTIONS
+   ================================================ */
+
+select option {
+  background: rgba(15, 15, 25, 0.95);
+  color: #ffffff;
+  padding: 12px 16px;
+  font-size: 0.95rem;
+}
+
+select option:hover {
+  background: rgba(0, 212, 255, 0.1);
+  color: #00d4ff;
+}
+
+select option:checked {
+  background: linear-gradient(
+    90deg,
+    rgba(0, 212, 255, 0.2),
+    rgba(0, 255, 212, 0.15)
+  );
+  color: #00d4ff;
+  font-weight: 600;
+}
+
+/* ================================================
+   SCROLLBAR (for long lists)
+   ================================================ */
+
+select {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 212, 255, 0.5) rgba(0, 0, 0, 0.2);
+}
+
+select::-webkit-scrollbar {
+  width: 6px;
+}
+
+select::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+select::-webkit-scrollbar-thumb {
+  background: rgba(0, 212, 255, 0.6);
+  border-radius: 3px;
+}
+
+select::-webkit-scrollbar-thumb:hover {
+  background: #00d4ff;
+}
+
+/* ================================================
+   MOBILE
+   ================================================ */
+
+@media (max-width: 768px) {
+  select {
+    padding: 16px 50px 16px 20px;
+    font-size: 1rem;
+  }
+
+  select option {
+    padding: 14px 20px;
+    font-size: 1rem;
+  }
+}

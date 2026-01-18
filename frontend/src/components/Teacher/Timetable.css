@@ -1,0 +1,29 @@
+.timetable-container {
+  max-width: 1200px;
+  margin: 20px auto;
+  background: rgba(10, 10, 15, 0.9);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 0 25px rgba(0, 212, 255, 0.3);
+  color: white;
+}
+
+.fc {
+  --fc-bg-color: transparent;
+  color: white;
+}
+
+.fc-toolbar-title {
+  font-weight: 700;
+  font-size: 1.8rem;
+}
+
+.fc-daygrid-event,
+.fc-timegrid-event {
+  background: linear-gradient(135deg, #00d4ff, #00ffcc);
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 255, 212, 0.5);
+  font-weight: 600;
+  cursor: pointer;
+}

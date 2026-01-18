@@ -1,0 +1,171 @@
+/* ============================================
+   ConnectionStatus Component - Production Styles
+   ============================================ */
+
+.connection-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  user-select: none;
+}
+
+/* Status Colors */
+.connection-status--connected {
+  background: rgba(34, 197, 94, 0.15);
+  color: #22c55e;
+}
+
+.connection-status--connecting,
+.connection-status--reconnecting {
+  background: rgba(234, 179, 8, 0.15);
+  color: #eab308;
+}
+
+.connection-status--warning {
+  background: rgba(249, 115, 22, 0.15);
+  color: #f97316;
+}
+
+.connection-status--disconnected,
+.connection-status--error {
+  background: rgba(239, 68, 68, 0.15);
+  color: #ef4444;
+}
+
+.connection-status--unknown {
+  background: rgba(156, 163, 175, 0.15);
+  color: #9ca3af;
+}
+
+/* Icon */
+.connection-status__icon {
+  font-size: 10px;
+  line-height: 1;
+}
+
+.connection-status__icon.checking {
+  animation: pulse 1s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
+/* Rotating animation for connecting states */
+.connection-status--connecting .connection-status__icon,
+.connection-status--reconnecting .connection-status__icon {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Text */
+.connection-status__text {
+  white-space: nowrap;
+}
+
+/* Hover effect */
+.connection-status:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Tooltip */
+.connection-status__tooltip {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  background: #1a1a2e;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 12px;
+  min-width: 180px;
+  z-index: 1000;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.connection-status__tooltip::before {
+  content: "";
+  position: absolute;
+  top: -6px;
+  right: 16px;
+  width: 10px;
+  height: 10px;
+  background: #1a1a2e;
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  transform: rotate(45deg);
+}
+
+.tooltip-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 0;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.tooltip-row span:first-child {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.tooltip-row .good {
+  color: #22c55e;
+}
+
+.tooltip-row .bad {
+  color: #ef4444;
+}
+
+.tooltip-hint {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.4);
+  text-align: center;
+}
+
+/* Responsive - hide text on very small screens */
+@media (max-width: 480px) {
+  .connection-status__text {
+    display: none;
+  }
+
+  .connection-status {
+    padding: 6px 8px;
+  }
+}

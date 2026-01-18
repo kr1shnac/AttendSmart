@@ -1,0 +1,25 @@
+.teacher-layout {
+  min-height: 100vh;
+  background: var(--bg-primary);
+}
+
+.main-content {
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* Desktop adjustments */
+@media (min-width: 769px) {
+  .main-content {
+    margin-left: 260px;
+    padding: 20px;
+  }
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .main-content {
+    padding-top: 70px; /* Space for top bar */
+    padding-bottom: 80px; /* Space for bottom nav */
+  }
+}

@@ -1,0 +1,538 @@
+/* ============================================
+   STUDENT HISTORY - MOBILE FIRST
+   ============================================ */
+
+.student-history {
+  padding: 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding-bottom: 100px;
+}
+
+/* HEADER */
+.history-header {
+  margin-bottom: 40px;
+}
+
+.back-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-secondary);
+  padding: 10px 18px;
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.25s ease;
+  margin-bottom: 20px;
+}
+
+.back-btn:hover {
+  /* Hover disabled */
+}
+
+.header-content h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  background: linear-gradient(45deg, var(--accent-cyan), var(--accent-teal));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.header-content h1 svg {
+  color: var(--accent-cyan);
+  -webkit-text-fill-color: initial;
+}
+
+.header-content .subtitle {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+/* SECTION TITLES */
+.section-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid rgba(0, 212, 255, 0.2);
+}
+
+.section-title svg {
+  color: var(--accent-cyan);
+  font-size: 1.4rem;
+}
+
+/* ============================================
+   SUMMARY CARDS - MOBILE FIRST
+   ============================================ */
+
+.summary-section {
+  margin-bottom: 50px;
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* Mobile: 1 per row */
+  gap: 20px;
+}
+
+.summary-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 25px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.02);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+  gap: 20px;
+}
+
+.summary-card:hover {
+  /* Hover disabled */
+}
+
+.card-left {
+  flex: 1;
+  min-width: 0;
+}
+
+.subject-name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0 0 8px 0;
+  line-height: 1.4;
+}
+
+.course-code {
+  display: inline-block;
+  font-size: 0.75rem;
+  background: rgba(0, 212, 255, 0.15);
+  color: var(--accent-cyan);
+  padding: 5px 10px;
+  border-radius: 6px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  margin-bottom: 15px;
+}
+
+.stats-row {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.stat-item .label {
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+}
+
+.stat-item .value {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.value.green {
+  color: #10b981;
+}
+
+.value.red {
+  color: #ef4444;
+}
+
+.card-right {
+  flex-shrink: 0;
+}
+
+.progress-circle {
+  width: 85px;
+  height: 85px;
+  position: relative;
+}
+
+.progress-circle svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.circle-bg {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.08);
+  stroke-width: 3;
+}
+
+.circle-progress {
+  fill: none;
+  stroke-width: 3;
+  stroke-linecap: round;
+  transition: stroke-dasharray 0.5s ease;
+}
+
+.percentage {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+/* ============================================
+   TIMELINE SECTION
+   ============================================ */
+
+.timeline-section {
+  margin-top: 40px;
+}
+
+/* ✅ MINIMAL FILTERS - NO OUTER WRAPPER */
+.timeline-filters {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.filter-select {
+  flex: 1;
+  min-width: 140px;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: var(--text-primary);
+  padding: 10px 14px;
+  border-radius: 8px;
+  outline: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.filter-select:hover {
+  /* Hover disabled */
+}
+
+.results-badge {
+  padding: 10px 16px;
+  background: rgba(0, 212, 255, 0.1);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  border-radius: 8px;
+  color: var(--accent-cyan);
+  font-weight: 700;
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+
+/* ============================================
+   TIMELINE - CONTINUOUS LINE FIX
+   ============================================ */
+
+.timeline-wrapper {
+  position: relative;
+  padding-left: 0;
+}
+
+/* ✅ CONTINUOUS VERTICAL LINE */
+.timeline-wrapper::before {
+  content: "";
+  position: absolute;
+  left: 84px; /* Align with dot center (60px date + 24px half of dot-wrapper) */
+  top: 20px;
+  bottom: 20px;
+  width: 2px;
+  background: rgba(255, 255, 255, 0.1);
+  z-index: 0;
+}
+
+.timeline-row {
+  display: grid;
+  grid-template-columns: 60px 48px 1fr; /* Mobile: compact */
+  gap: 0;
+  padding-bottom: 30px;
+  position: relative;
+  align-items: center;
+}
+
+.timeline-row:last-child {
+  padding-bottom: 0;
+}
+
+/* Date */
+.timeline-date {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  padding-right: 12px;
+  text-align: right;
+}
+
+.date-day {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1;
+}
+
+.date-month {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-top: 3px;
+}
+
+/* Dot Wrapper */
+.timeline-dot-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2; /* Above the line */
+}
+
+/* ✅ DOT - NO EXTRA LINE INSIDE */
+.timeline-dot {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  background: #0a0a19; /* Solid background to hide line behind */
+  border: 2px solid;
+  position: relative;
+  z-index: 3;
+}
+
+.timeline-row.present .timeline-dot {
+  color: #10b981;
+  border-color: #10b981;
+  box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.08);
+}
+
+.timeline-row.absent .timeline-dot {
+  color: #ef4444;
+  border-color: #ef4444;
+  box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.08);
+}
+
+/* Card */
+.timeline-card {
+  padding: 18px 20px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.timeline-card:hover {
+  /* Hover disabled */
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+  gap: 12px;
+}
+
+.card-header h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 5px 0;
+  line-height: 1.3;
+}
+
+.record-time {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.status-badge {
+  padding: 5px 12px;
+  border-radius: 6px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  flex-shrink: 0;
+}
+
+.status-badge.present {
+  background: rgba(16, 185, 129, 0.1);
+  color: #10b981;
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.status-badge.absent {
+  background: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+  border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+.card-details {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.detail {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.detail svg {
+  color: var(--accent-cyan);
+  font-size: 0.95rem;
+  flex-shrink: 0;
+}
+
+.detail.highlight {
+  color: var(--accent-cyan);
+  font-weight: 600;
+}
+
+/* NO DATA */
+.no-data {
+  padding: 50px 30px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  margin-top: 20px;
+}
+
+.no-data-icon {
+  font-size: 2.5rem;
+  color: var(--text-secondary);
+  opacity: 0.4;
+  margin-bottom: 12px;
+}
+
+.no-data h3 {
+  font-size: 1.1rem;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.no-data p {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+/* ============================================
+   TABLET & DESKTOP
+   ============================================ */
+
+@media (min-width: 600px) {
+  .timeline-filters {
+    gap: 15px;
+  }
+
+  .filter-select {
+    flex: 0 1 200px;
+  }
+
+  .card-details {
+    flex-direction: row;
+    gap: 20px;
+  }
+}
+
+@media (min-width: 768px) {
+  .student-history {
+    padding: 30px;
+  }
+
+  .summary-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 per row on tablet+ */
+    gap: 25px;
+  }
+
+  .timeline-wrapper::before {
+    left: 104px; /* Adjusted for larger date column */
+  }
+
+  .timeline-row {
+    grid-template-columns: 80px 60px 1fr;
+    padding-bottom: 35px;
+  }
+
+  .timeline-date {
+    padding-right: 20px;
+  }
+
+  .date-day {
+    font-size: 1.8rem;
+  }
+
+  .date-month {
+    font-size: 0.85rem;
+  }
+
+  .timeline-dot {
+    width: 42px;
+    height: 42px;
+    font-size: 1.2rem;
+  }
+
+  .timeline-card {
+    padding: 20px 25px;
+  }
+
+  .card-header h3 {
+    font-size: 1.1rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .student-history {
+    padding: 40px;
+  }
+
+  .header-content h1 {
+    font-size: 2.2rem;
+  }
+
+  .summary-section {
+    margin-bottom: 60px;
+  }
+
+  .summary-grid {
+    gap: 30px;
+  }
+}

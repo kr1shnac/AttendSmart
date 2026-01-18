@@ -1,0 +1,90 @@
+/* ============================================
+   GLOBAL RESPONSIVE UTILITIES
+   AttendSmart - Premium Aurora Theme
+   ============================================ */
+
+/* ============================================
+   TABLET BREAKPOINT (max-width: 1024px)
+   ============================================ */
+@media (max-width: 1024px) {
+  .container {
+    padding: 16px;
+  }
+}
+
+/* ============================================
+   MOBILE BREAKPOINT (max-width: 768px)
+   ============================================ */
+@media (max-width: 768px) {
+  .container {
+    padding: 12px;
+  }
+
+  /* Reduce large gaps on mobile */
+  .glass-morphism {
+    padding: 16px;
+    border-radius: 14px;
+  }
+
+  /* Typography adjustments */
+  h1 {
+    font-size: 1.8rem !important;
+  }
+
+  h2 {
+    font-size: 1.4rem !important;
+  }
+
+  h3 {
+    font-size: 1.1rem !important;
+  }
+}
+
+/* ============================================
+   SMALL MOBILE BREAKPOINT (max-width: 480px)
+   ============================================ */
+@media (max-width: 480px) {
+  .container {
+    padding: 10px;
+  }
+
+  /* Typography adjustments for small screens */
+  h1 {
+    font-size: 1.5rem !important;
+  }
+
+  h2 {
+    font-size: 1.2rem !important;
+  }
+
+  h3 {
+    font-size: 1rem !important;
+  }
+
+  /* Reduce glass card padding on very small screens */
+  .glass-morphism {
+    padding: 14px;
+    border-radius: 12px;
+  }
+
+  /* Ensure touch targets are adequate (minimum 44px) */
+  button,
+  .btn,
+  [role="button"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* ============================================
+   ACCESSIBILITY - Reduced Motion
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

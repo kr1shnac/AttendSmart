@@ -1,0 +1,137 @@
+/* ============================================
+   THEME.CSS - Single Source of Truth
+   Global CSS Variables for AttendSmart
+   ============================================ */
+
+:root {
+  /* ===== TYPOGRAPHY ===== */
+  --font-family-primary: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, sans-serif;
+  --font-family-mono: "Courier New", Consolas, monospace;
+
+  --font-size-xs: 0.75rem; /* 12px */
+  --font-size-sm: 0.875rem; /* 14px */
+  --font-size-base: 1rem; /* 16px */
+  --font-size-lg: 1.125rem; /* 18px */
+  --font-size-xl: 1.25rem; /* 20px */
+  --font-size-2xl: 1.5rem; /* 24px */
+  --font-size-3xl: 1.875rem; /* 30px */
+  --font-size-4xl: 2.25rem; /* 36px */
+  --font-size-5xl: 2.5rem; /* 40px */
+
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.75;
+
+  /* ===== COLORS - Primary Palette ===== */
+  --accent-cyan: #00d4ff;
+  --accent-teal: #00ffd4;
+  --aurora-blue: #3b82f6;
+  --aurora-green: #10b981;
+
+  /* ===== COLORS - Background ===== */
+  --bg-primary: #0a0a0f;
+  --bg-secondary: #1a1a2e;
+  --bg-tertiary: #16162a;
+  --bg-surface: rgba(255, 255, 255, 0.05);
+  --bg-surface-hover: rgba(255, 255, 255, 0.08);
+
+  /* ===== COLORS - Text ===== */
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.7);
+  --text-tertiary: rgba(255, 255, 255, 0.5);
+  --text-muted: rgba(255, 255, 255, 0.4);
+
+  /* ===== COLORS - Semantic ===== */
+  --color-success: #10b981;
+  --color-success-light: rgba(16, 185, 129, 0.2);
+  --color-warning: #fbbf24;
+  --color-warning-light: rgba(251, 191, 36, 0.2);
+  --color-error: #ef4444;
+  --color-error-light: rgba(239, 68, 68, 0.2);
+  --color-info: #3b82f6;
+  --color-info-light: rgba(59, 130, 246, 0.2);
+
+  /* ===== SPACING ===== */
+  --spacing-xs: 0.25rem; /* 4px */
+  --spacing-sm: 0.5rem; /* 8px */
+  --spacing-md: 1rem; /* 16px */
+  --spacing-lg: 1.5rem; /* 24px */
+  --spacing-xl: 2rem; /* 32px */
+  --spacing-2xl: 2.5rem; /* 40px */
+  --spacing-3xl: 3rem; /* 48px */
+  --spacing-4xl: 4rem; /* 64px */
+
+  /* ===== BORDERS ===== */
+  --border-width-thin: 1px;
+  --border-width-medium: 1.5px;
+  --border-width-thick: 2px;
+
+  --border-radius-sm: 8px;
+  --border-radius-md: 12px;
+  --border-radius-lg: 16px;
+  --border-radius-xl: 20px;
+  --border-radius-2xl: 24px;
+  --border-radius-full: 9999px;
+
+  --border-color-default: rgba(0, 212, 255, 0.3);
+  --border-color-hover: rgba(0, 212, 255, 0.5);
+  --border-color-subtle: rgba(255, 255, 255, 0.1);
+
+  /* ===== SHADOWS ===== */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 15px rgba(0, 212, 255, 0.15);
+  --shadow-lg: 0 10px 30px rgba(0, 212, 255, 0.25);
+  --shadow-xl: 0 20px 60px rgba(0, 0, 0, 0.5);
+  --shadow-glow: 0 0 20px rgba(0, 212, 255, 0.5);
+
+  /* ===== TRANSITIONS ===== */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 0.5s ease;
+
+  /* ===== Z-INDEX ===== */
+  --z-dropdown: 100;
+  --z-sticky: 500;
+  --z-navbar: 1000;
+  --z-modal-backdrop: 9000;
+  --z-modal: 9500;
+  --z-toast: 10000;
+}
+
+/* ===== GLOBAL TYPOGRAPHY RESET ===== */
+html {
+  font-size: 16px; /* Base for rem calculations - DO NOT CHANGE */
+}
+
+body {
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-normal);
+  color: var(--text-primary);
+  background: var(--bg-primary);
+}
+
+/* ===== GRADIENT TEXT UTILITY ===== */
+.gradient-text,
+.aurora-text {
+  background: linear-gradient(135deg, var(--accent-cyan), var(--accent-teal));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ===== GLASS MORPHISM UTILITY ===== */
+.glass-morphism {
+  background: var(--bg-surface);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: var(--border-width-thin) solid var(--border-color-subtle);
+  border-radius: var(--border-radius-lg);
+}

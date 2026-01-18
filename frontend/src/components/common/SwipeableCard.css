@@ -1,0 +1,57 @@
+.swipeable-card {
+  position: relative;
+  touch-action: pan-y;
+  user-select: none;
+}
+
+.swipe-indicator {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 12px 20px;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  pointer-events: none;
+  z-index: 1;
+  white-space: nowrap;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.swipe-indicator.left {
+  left: 20px;
+  background: linear-gradient(
+    135deg,
+    rgba(59, 130, 246, 0.95),
+    rgba(37, 99, 235, 0.95)
+  );
+  color: white;
+}
+
+.swipe-indicator.right {
+  right: 20px;
+  background: linear-gradient(
+    135deg,
+    rgba(16, 185, 129, 0.95),
+    rgba(5, 150, 105, 0.95)
+  );
+  color: white;
+}
+
+/* Haptic feedback effect */
+@media (hover: none) {
+  .swipeable-card:active {
+    filter: brightness(0.95);
+  }
+}
+
+/* Desktop: disable swipe, show hover */
+@media (min-width: 769px) {
+  .swipeable-card {
+    touch-action: auto;
+  }
+
+  .swipe-indicator {
+    display: none;
+  }
+}

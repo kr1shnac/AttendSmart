@@ -1,0 +1,172 @@
+/* Button Base Styles - Preserving AttendSmart Theme */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border: none;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  font-size: var(--font-base);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  font-family: inherit;
+  white-space: nowrap;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Primary Variant - Cyan Gradient */
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent-cyan), var(--accent-teal));
+  color: var(--bg-primary);
+  border: 2px solid transparent;
+}
+
+.btn-primary:not(:disabled):hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 212, 255, 0.4);
+}
+
+/* Secondary Variant - Glass Morphism */
+.btn-secondary {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  color: var(--accent-cyan);
+  border: 2px solid rgba(0, 212, 255, 0.3);
+}
+
+.btn-secondary:not(:disabled):hover {
+  background: rgba(0, 212, 255, 0.15);
+  border-color: var(--accent-cyan);
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+}
+
+/* Danger Variant - Red */
+.btn-danger {
+  background: linear-gradient(
+    135deg,
+    rgba(239, 68, 68, 0.2),
+    rgba(220, 38, 38, 0.15)
+  );
+  color: #ef4444;
+  border: 2px solid rgba(239, 68, 68, 0.4);
+}
+
+.btn-danger:not(:disabled):hover {
+  background: linear-gradient(
+    135deg,
+    rgba(239, 68, 68, 0.3),
+    rgba(220, 38, 38, 0.25)
+  );
+  border-color: #ef4444;
+  box-shadow: 0 5px 15px rgba(239, 68, 68, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Success Variant - Green */
+.btn-success {
+  background: linear-gradient(
+    135deg,
+    rgba(16, 185, 129, 0.25),
+    rgba(5, 150, 105, 0.2)
+  );
+  color: var(--aurora-green);
+  border: 2px solid rgba(16, 185, 129, 0.4);
+}
+
+.btn-success:not(:disabled):hover {
+  background: linear-gradient(
+    135deg,
+    rgba(16, 185, 129, 0.35),
+    rgba(5, 150, 105, 0.3)
+  );
+  border-color: var(--aurora-green);
+  box-shadow: 0 5px 15px rgba(16, 185, 129, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Ghost Variant - Transparent */
+.btn-ghost {
+  background: transparent;
+  color: var(--text-secondary);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.btn-ghost:not(:disabled):hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-primary);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Size Variants */
+.btn-small {
+  padding: 8px 16px;
+  font-size: var(--font-sm);
+  gap: 6px;
+}
+
+.btn-medium {
+  padding: 12px 24px;
+  font-size: var(--font-base);
+  gap: 8px;
+}
+
+.btn-large {
+  padding: 16px 32px;
+  font-size: var(--font-lg);
+  gap: 10px;
+}
+
+/* Full Width */
+.btn-full-width {
+  width: 100%;
+}
+
+/* Icon Sizing */
+.btn-icon {
+  display: flex;
+  align-items: center;
+  font-size: 1.2em;
+}
+
+.btn-small .btn-icon {
+  font-size: 1.1em;
+}
+
+.btn-large .btn-icon {
+  font-size: 1.3em;
+}
+
+/* Loading State */
+.btn-loading {
+  pointer-events: none;
+}
+
+.btn-loading .btn-text {
+  opacity: 0;
+}
+
+/* Button Spinner uses global animation from animations.css */
+.button-spinner {
+  position: absolute;
+}
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+  .btn {
+    padding: 10px 20px;
+    font-size: var(--font-sm);
+  }
+
+  .btn-large {
+    padding: 14px 28px;
+    font-size: var(--font-base);
+  }
+}

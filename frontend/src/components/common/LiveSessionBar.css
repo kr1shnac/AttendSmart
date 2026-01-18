@@ -1,0 +1,205 @@
+/* LiveSessionBar.css - Premium Glass Effect Styling */
+
+.live-session-bar {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 24px;
+
+  /* Same glass effect as navbar */
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: none;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+
+  /* Red accent for live indicator */
+  border-left: 3px solid #ff3b30;
+
+  flex-wrap: wrap;
+}
+
+/* Live indicator with pulse animation */
+.live-session-bar__indicator {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.live-session-bar__pulse {
+  width: 8px;
+  height: 8px;
+  background: #ff3b30;
+  border-radius: 50%;
+  animation: pulse-bar 1.5s ease-in-out infinite;
+  box-shadow: 0 0 8px rgba(255, 59, 48, 0.6);
+}
+
+@keyframes pulse-bar {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.3);
+    opacity: 0.6;
+  }
+}
+
+.live-session-bar__live-text {
+  color: #ff3b30;
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+/* Session info */
+.live-session-bar__info {
+  flex: 1;
+  min-width: 120px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.live-session-bar__subject {
+  color: white;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.live-session-bar__code {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.85rem;
+}
+
+/* Stats section */
+.live-session-bar__stats {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-shrink: 0;
+}
+
+.live-session-bar__participants {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.live-session-bar__countdown {
+  color: #fbbf24;
+  font-size: 0.85rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(251, 191, 36, 0.12);
+  padding: 4px 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(251, 191, 36, 0.25);
+}
+
+/* Attendance status */
+.live-session-bar__status {
+  padding: 6px 12px;
+  border-radius: 16px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.live-session-bar__status--marked {
+  background: rgba(16, 185, 129, 0.15);
+  color: #10b981;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+/* Action buttons */
+.live-session-bar__actions {
+  display: flex;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.live-session-bar__btn {
+  padding: 8px 16px;
+  border-radius: 10px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+}
+
+.live-session-bar__btn--view {
+  background: rgba(255, 255, 255, 0.08);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.live-session-bar__btn--view:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-1px);
+}
+
+.live-session-bar__btn--end {
+  background: linear-gradient(135deg, #ff3b30, #ff6b5a);
+  color: white;
+  border: none;
+}
+
+.live-session-bar__btn--end:hover:not(:disabled) {
+  box-shadow: 0 4px 12px rgba(255, 59, 48, 0.35);
+  transform: translateY(-1px);
+}
+
+.live-session-bar__btn--end:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .live-session-bar {
+    padding: 10px 16px;
+    gap: 10px;
+    margin: 8px 12px;
+    width: calc(100% - 24px);
+  }
+
+  .live-session-bar__stats {
+    gap: 10px;
+  }
+
+  .live-session-bar__btn {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .live-session-bar__stats {
+    display: none;
+  }
+
+  .live-session-bar__info {
+    flex-basis: auto;
+    flex: 1;
+  }
+
+  .live-session-bar__actions {
+    flex-shrink: 0;
+  }
+}

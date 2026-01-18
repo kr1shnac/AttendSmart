@@ -1,0 +1,129 @@
+# ============================================
+# ENVIRONMENT & SECRETS (NEVER COMMIT!)
+# ============================================
+.env
+.env.local
+.env.production
+.env.production.local
+.env.*.local
+backend/.env
+backend/.env.production
+frontend/.env
+
+# TEST CREDENTIALS (NEVER COMMIT!)
+TEST_CREDENTIALS.md
+**/TEST_CREDENTIALS.md
+
+# ============================================
+# DEPENDENCIES
+# ============================================
+node_modules/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# ============================================
+# BUILD & DIST
+# ============================================
+build/
+dist/
+.next/
+out/
+
+# ============================================
+# RUNTIME & LOGS
+# ============================================
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# ============================================
+# IDE & EDITOR
+# ============================================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+.vs/
+*.sublime-project
+*.sublime-workspace
+
+# ============================================
+# CACHE
+# ============================================
+.cache/
+.parcel-cache
+.eslintcache
+.stylelintcache
+
+# ============================================
+# OPERATING SYSTEM
+# ============================================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# ============================================
+# UPLOADS & USER-GENERATED CONTENT
+# ============================================
+uploads/
+public/uploads/
+temp/
+tmp/
+
+# ============================================
+# TESTING
+# ============================================
+coverage/
+.nyc_output/
+*.lcov
+
+# ============================================
+# DOCKER & CONTAINERIZATION
+# ============================================
+docker-compose.override.yml
+.dockerignore
+
+# ============================================
+# DATABASE
+# ============================================
+*.db
+*.sqlite
+*.sqlite3
+data/
+
+# ============================================
+# MISC
+# ============================================
+.env.test.local
+dist-ssr/
+.turbo/
+
+# Gradle
+.gradle/
+**/.gradle/
+build/
+
+# Android
+local.properties
+*.iml
+
+# Android Studio
+.idea/
+.cxx/
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db

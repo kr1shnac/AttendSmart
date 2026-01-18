@@ -1,0 +1,1295 @@
+/* ============================================
+   Class Detail Management Styles - Standardized
+   ============================================ */
+
+.class-detail-management {
+  padding: 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+  color: white;
+  font-family: "Inter", sans-serif;
+}
+
+.cdm-loading-container,
+.cdm-error-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 50vh;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.cdm-spinner {
+  width: 48px;
+  height: 48px;
+  border: 4px solid rgba(255, 255, 255, 0.1);
+  border-top-color: #00d4ff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.cdm-header {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.cdm-back-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: fit-content;
+}
+
+.cdm-back-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.cdm-title-section {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.cdm-course-badge {
+  padding: 0.4rem 0.8rem;
+  background: rgba(0, 212, 255, 0.1);
+  border-radius: 8px;
+  font-family: "SF Mono", "Monaco", monospace;
+  font-weight: 600;
+  color: #00d4ff;
+  font-size: 0.9rem;
+}
+
+.cdm-title-section h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+}
+
+.cdm-subtitle {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.95rem;
+  margin: 0.25rem 0 0;
+}
+
+/* Tabs */
+.cdm-tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.cdm-tab {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.cdm-tab:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.cdm-tab.active {
+  color: #fff;
+  border-bottom-color: #00d4ff;
+  background: rgba(0, 212, 255, 0.05);
+}
+
+.cdm-tab-count {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+}
+
+.cdm-tab.active .cdm-tab-count {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Sections */
+.cdm-section,
+.cdm-tab-content {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+}
+
+.cdm-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 1.5rem;
+  background: rgba(255, 255, 255, 0.02);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.cdm-section-header h2,
+.cdm-section-header h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #fff;
+  margin: 0;
+}
+
+.cdm-section-header svg {
+  color: #00d4ff;
+}
+
+/* Buttons */
+.cdm-edit-btn,
+.cdm-add-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.2s;
+  padding: 8px 16px;
+}
+
+.cdm-edit-btn {
+  background: rgba(59, 130, 246, 0.15);
+  color: #3b82f6;
+}
+
+.cdm-edit-btn:hover {
+  background: rgba(59, 130, 246, 0.25);
+}
+
+.cdm-add-btn {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: #fff;
+}
+
+.cdm-add-btn:hover {
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+  transform: translateY(-1px);
+}
+
+.cdm-btn-save,
+.cdm-btn-cancel,
+.cdm-btn-submit {
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s;
+}
+
+.cdm-btn-save,
+.cdm-btn-submit {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
+}
+.cdm-btn-save:hover,
+.cdm-btn-submit:hover {
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+  transform: translateY(-1px);
+}
+
+.cdm-btn-cancel {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.7);
+}
+.cdm-btn-cancel:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+/* Teacher Display */
+.cdm-section-body {
+  padding: 1.5rem;
+}
+
+.cdm-teacher-display {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.cdm-teacher-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: white;
+}
+
+.cdm-teacher-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.cdm-teacher-name {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 4px;
+}
+
+.cdm-teacher-email {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.95rem;
+}
+
+.cdm-teacher-edit {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.cdm-teacher-select {
+  flex: 1;
+  min-width: 250px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.cdm-teacher-select:focus {
+  outline: none;
+  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.06);
+}
+.cdm-teacher-select option {
+  background: #1a1a2e;
+}
+
+/* Tables (Subject Teachers) */
+.cdm-table-wrapper {
+  overflow-x: auto;
+}
+
+.cdm-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.cdm-table th,
+.cdm-table td {
+  padding: 16px;
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.cdm-table th {
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+}
+
+.cdm-table tr:hover td {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.cdm-subject-name {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 500;
+  color: white;
+}
+.cdm-subject-name .icon {
+  color: #00d4ff;
+}
+
+.cdm-code-badge {
+  background: rgba(0, 212, 255, 0.1);
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-family: monospace;
+  font-size: 0.9rem;
+  color: #00d4ff;
+}
+
+.cdm-teacher-cell {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.avatar-xs {
+  width: 32px;
+  height: 32px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #00d4ff;
+}
+
+.cdm-action-btn.delete {
+  background: rgba(239, 68, 68, 0.15);
+  color: #ef4444;
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.cdm-action-btn.delete:hover {
+  background: rgba(239, 68, 68, 0.25);
+}
+
+/* Students Grid */
+.cdm-students-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+  padding: 20px;
+}
+
+.cdm-student-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  position: relative;
+  transition: all 0.2s;
+}
+
+.cdm-student-card:hover {
+  background: rgba(255, 255, 255, 0.06);
+  transform: translateY(-2px);
+  border-color: rgba(0, 212, 255, 0.2);
+}
+
+.cdm-student-avatar-sm {
+  width: 42px;
+  height: 42px;
+  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  color: white;
+}
+
+.cdm-student-details {
+  flex: 1;
+  overflow: hidden;
+}
+
+.cdm-student-details .name {
+  font-weight: 500;
+  color: white;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cdm-student-details .usn {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.5);
+  margin-top: 2px;
+}
+
+.cdm-remove-icon-btn {
+  opacity: 0;
+  background: rgba(239, 68, 68, 0.2);
+  color: #ef4444;
+  border: none;
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.cdm-student-card:hover .cdm-remove-icon-btn {
+  opacity: 1;
+}
+
+.cdm-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  color: rgba(255, 255, 255, 0.5);
+}
+.cdm-empty-icon {
+  font-size: 3rem;
+  margin-bottom: 16px;
+  opacity: 0.3;
+}
+
+/* Modal Search & List - Standardized */
+.cdm-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.cdm-modal {
+  width: 100%;
+  max-width: 500px;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  max-height: 80vh;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+}
+
+.cdm-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: transparent;
+}
+
+.cdm-modal-header h2 {
+  margin: 0;
+  font-size: 1.25rem;
+  color: white;
+}
+
+.cdm-modal-close {
+  background: rgba(255, 255, 255, 0.05);
+  border: none;
+  border-radius: 10px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: all 0.2s;
+}
+.cdm-modal-close:hover {
+  background: rgba(239, 68, 68, 0.15);
+  color: #ef4444;
+}
+
+.cdm-modal-search {
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.cdm-modal-search input {
+  background: transparent;
+  border: none;
+  color: white;
+  width: 100%;
+  font-size: 1rem;
+}
+.cdm-modal-search input:focus {
+  outline: none;
+}
+
+.cdm-modal-body-scroll {
+  flex: 1;
+  overflow-y: auto;
+  padding: 10px;
+}
+
+.cdm-student-select-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-bottom: 5px;
+}
+
+.cdm-student-select-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.cdm-student-select-item.selected {
+  background: rgba(16, 185, 129, 0.1);
+}
+
+.check-circle {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #10b981;
+  font-size: 12px;
+}
+
+.cdm-student-select-item.selected .check-circle {
+  border-color: #10b981;
+  background: rgba(16, 185, 129, 0.2);
+}
+
+.cdm-modal-form {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.cdm-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.cdm-form-group label {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.cdm-form-group select {
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.cdm-form-group select:focus {
+  outline: none;
+  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.06);
+}
+.cdm-form-group select option {
+  background: #1a1a2e;
+}
+
+.cdm-modal-footer {
+  padding: 16px 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.cdm-loading-container,
+.cdm-error-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 50vh;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.cdm-spinner {
+  width: 48px;
+  height: 48px;
+  border: 4px solid rgba(255, 255, 255, 0.1);
+  border-top-color: #10b981;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.cdm-header {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.cdm-back-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: fit-content;
+}
+
+.cdm-back-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.cdm-title-section {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.cdm-course-badge {
+  padding: 0.5rem 1rem;
+  background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
+  border-radius: 10px;
+  font-family: "SF Mono", "Monaco", monospace;
+  font-weight: 600;
+  color: #fff;
+}
+
+.cdm-title-section h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+}
+
+.cdm-subtitle {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.95rem;
+  margin: 0.25rem 0 0;
+}
+
+/* Tabs */
+.cdm-tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.cdm-tab {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.cdm-tab:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.cdm-tab.active {
+  color: #fff;
+  border-bottom-color: #0ea5e9;
+  background: rgba(14, 165, 233, 0.1);
+}
+
+.cdm-tab-count {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+}
+
+.cdm-tab.active .cdm-tab-count {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Sections */
+.cdm-section {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+}
+
+.cdm-tab-content {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.cdm-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 1.5rem;
+  background: rgba(255, 255, 255, 0.02);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.cdm-section-header h2,
+.cdm-section-header h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #fff;
+  margin: 0;
+}
+
+.cdm-section-header svg {
+  color: #8b5cf6;
+}
+
+/* Buttons */
+.cdm-edit-btn,
+.cdm-add-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.2s;
+  padding: 8px 16px;
+}
+
+.cdm-edit-btn {
+  background: rgba(59, 130, 246, 0.15);
+  color: #3b82f6;
+}
+
+.cdm-edit-btn:hover {
+  background: rgba(59, 130, 246, 0.25);
+}
+
+.cdm-add-btn {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: #fff;
+}
+
+.cdm-add-btn:hover {
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+  transform: translateY(-1px);
+}
+
+.cdm-btn-save,
+.cdm-btn-cancel,
+.cdm-btn-submit {
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s;
+}
+
+.cdm-btn-save,
+.cdm-btn-submit {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
+}
+.cdm-btn-save:hover,
+.cdm-btn-submit:hover {
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+}
+
+.cdm-btn-cancel {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+.cdm-btn-cancel:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Teacher Display */
+.cdm-section-body {
+  padding: 1.5rem;
+}
+
+.cdm-teacher-display {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.cdm-teacher-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: white;
+}
+
+.cdm-teacher-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.cdm-teacher-name {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 4px;
+}
+
+.cdm-teacher-email {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.95rem;
+}
+
+.cdm-teacher-edit {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.cdm-teacher-select {
+  flex: 1;
+  min-width: 250px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.cdm-teacher-select:focus {
+  outline: none;
+  border-color: #0ea5e9;
+}
+.cdm-teacher-select option {
+  background: #1a1a2e;
+}
+
+/* Tables (Subject Teachers) */
+.cdm-table-wrapper {
+  overflow-x: auto;
+}
+
+.cdm-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.cdm-table th,
+.cdm-table td {
+  padding: 16px;
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.cdm-table th {
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+}
+
+.cdm-table tr:hover td {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.cdm-subject-name {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 500;
+  color: white;
+}
+.cdm-subject-name .icon {
+  color: #0ea5e9;
+}
+
+.cdm-code-badge {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-family: monospace;
+  font-size: 0.9rem;
+}
+
+.cdm-teacher-cell {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.avatar-xs {
+  width: 32px;
+  height: 32px;
+  background: #6366f1;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: white;
+}
+
+.cdm-action-btn.delete {
+  background: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.cdm-action-btn.delete:hover {
+  background: rgba(239, 68, 68, 0.2);
+}
+
+/* Students Grid */
+.cdm-students-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+  padding: 20px;
+}
+
+.cdm-student-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  position: relative;
+  transition: all 0.2s;
+}
+
+.cdm-student-card:hover {
+  background: rgba(255, 255, 255, 0.06);
+  transform: translateY(-2px);
+}
+
+.cdm-student-avatar-sm {
+  width: 42px;
+  height: 42px;
+  background: linear-gradient(135deg, #ec4899 0%, #be185d 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  color: white;
+}
+
+.cdm-student-details {
+  flex: 1;
+  overflow: hidden;
+}
+
+.cdm-student-details .name {
+  font-weight: 500;
+  color: white;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cdm-student-details .usn {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.5);
+  margin-top: 2px;
+}
+
+.cdm-remove-icon-btn {
+  opacity: 0;
+  background: rgba(239, 68, 68, 0.2);
+  color: #ef4444;
+  border: none;
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.cdm-student-card:hover .cdm-remove-icon-btn {
+  opacity: 1;
+}
+
+.cdm-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  color: rgba(255, 255, 255, 0.5);
+}
+.cdm-empty-icon {
+  font-size: 3rem;
+  margin-bottom: 16px;
+  opacity: 0.3;
+}
+
+/* Modal Search & List */
+.cdm-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.cdm-modal {
+  width: 100%;
+  max-width: 500px;
+  background: #1e1e2d;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  max-height: 80vh;
+}
+
+.cdm-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.cdm-modal-header h2 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.cdm-modal-close {
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+.cdm-modal-close:hover {
+  color: white;
+}
+
+.cdm-modal-search {
+  padding: 16px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.cdm-modal-search input {
+  background: transparent;
+  border: none;
+  color: white;
+  width: 100%;
+  font-size: 1rem;
+}
+.cdm-modal-search input:focus {
+  outline: none;
+}
+
+.cdm-modal-body-scroll {
+  flex: 1;
+  overflow-y: auto;
+  padding: 10px;
+}
+
+.cdm-student-select-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.cdm-student-select-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.cdm-student-select-item.selected {
+  background: rgba(16, 185, 129, 0.1);
+}
+
+.check-circle {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #10b981;
+  font-size: 12px;
+}
+
+.cdm-student-select-item.selected .check-circle {
+  border-color: #10b981;
+  background: rgba(16, 185, 129, 0.2);
+}
+
+.cdm-modal-form {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.cdm-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.cdm-form-group label {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.cdm-form-group select {
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+}
+.cdm-form-group select option {
+  background: #1e1e2d;
+}
+
+.cdm-modal-footer {
+  padding: 16px 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.02);
+}

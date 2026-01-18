@@ -1,0 +1,146 @@
+.student-details-simple {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Basic Info Section */
+.info-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  /* NO hover effect */
+  cursor: default;
+}
+
+.info-label {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.info-value {
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-align: right;
+}
+
+/* Attendance Stats Section */
+.stats-section {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 8px;
+}
+
+/* Stat cards with NO hover effect */
+.stat-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 16px;
+  border-radius: 10px;
+  border: 2px solid;
+  cursor: default;
+  /* NO hover or transition */
+}
+
+/* Colors for each stat */
+.stat-card.present {
+  background: rgba(16, 185, 129, 0.1);
+  border-color: rgba(16, 185, 129, 0.3);
+  color: #10b981;
+}
+
+.stat-card.absent {
+  background: rgba(239, 68, 68, 0.1);
+  border-color: rgba(239, 68, 68, 0.3);
+  color: #ef4444;
+}
+
+.stat-card.percentage {
+  background: rgba(0, 212, 255, 0.1);
+  border-color: rgba(0, 212, 255, 0.3);
+  color: var(--accent-cyan);
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.stat-number {
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+/* Contact Buttons Section */
+.action-section {
+  display: flex;
+  gap: 12px;
+  padding-top: 8px;
+}
+
+.action-button {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 20px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  color: white;
+  transition: none; /* No hover effect */
+  font-family: inherit;
+  user-select: none;
+}
+
+.action-button.call-student {
+  background-color: #10b981;
+}
+
+.action-button.call-parent {
+  background-color: #3b82f6;
+}
+
+.action-button.whatsapp {
+  background-color: #25d366;
+}
+
+.button-icon {
+  font-size: 1.25rem;
+}
+
+/* No hover effects for buttons (optional, can add if you like) */
+
+/* Responsive: Stack buttons vertically on small screens */
+@media (max-width: 768px) {
+  .stats-section {
+    grid-template-columns: 1fr;
+  }
+
+  .action-section {
+    flex-direction: column;
+  }
+}

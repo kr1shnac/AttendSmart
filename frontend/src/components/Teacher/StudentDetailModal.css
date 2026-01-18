@@ -1,0 +1,754 @@
+/* ===================================================================
+   STUDENT DETAIL MODAL - LIQUID GLASS EFFECT - MOBILE FIRST
+   =================================================================== */
+
+/* Overlay */
+.student-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+  z-index: 9999;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* Modal Container - LIQUID GLASS EFFECT */
+.student-modal-container {
+  position: relative;
+  width: 100%;
+  height: 92vh;
+  max-height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(10, 20, 40, 0.92) 0%,
+    rgba(15, 30, 50, 0.88) 50%,
+    rgba(10, 25, 45, 0.9) 100%
+  );
+  backdrop-filter: blur(30px) saturate(180%);
+  -webkit-backdrop-filter: blur(30px) saturate(180%);
+  border: 1.5px solid rgba(255, 255, 255, 0.12);
+  border-bottom: none;
+  border-radius: 24px 24px 0 0;
+  box-shadow: 0 -10px 60px rgba(0, 0, 0, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Close Button */
+.modal-close-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  border: 1.5px solid rgba(255, 255, 255, 0.15);
+  color: var(--text-primary);
+  font-size: 1.3rem;
+  cursor: pointer;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.modal-close-button:hover {
+  background: rgba(239, 68, 68, 0.25);
+  border-color: rgba(239, 68, 68, 0.5);
+  color: #ef4444;
+  transform: rotate(90deg);
+}
+
+/* Scrollable Content */
+.modal-scroll-content {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 24px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 212, 255, 0.3) transparent;
+}
+
+.modal-scroll-content::-webkit-scrollbar {
+  width: 4px;
+}
+
+.modal-scroll-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.modal-scroll-content::-webkit-scrollbar-thumb {
+  background: rgba(0, 212, 255, 0.3);
+  border-radius: 2px;
+}
+
+/* ===================================================================
+   HEADER SECTION
+   =================================================================== */
+
+.modal-header-section {
+  text-align: center;
+  padding-bottom: 24px;
+}
+
+/* Avatar Large */
+.modal-avatar-large {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin: 0 auto 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #00d4ff, #00ffd4);
+  border: 3px solid rgba(0, 212, 255, 0.4);
+  box-shadow: 0 8px 30px rgba(0, 212, 255, 0.3);
+  overflow: hidden;
+  position: relative;
+}
+
+.modal-avatar-large::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 30% 30%,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  pointer-events: none;
+}
+
+.modal-avatar-large.excellent {
+  background: linear-gradient(135deg, #10b981, #059669);
+  border-color: rgba(16, 185, 129, 0.5);
+  box-shadow: 0 8px 30px rgba(16, 185, 129, 0.4);
+}
+
+.modal-avatar-large.good {
+  background: linear-gradient(135deg, #00d4ff, #0891b2);
+  border-color: rgba(0, 212, 255, 0.5);
+  box-shadow: 0 8px 30px rgba(0, 212, 255, 0.4);
+}
+
+.modal-avatar-large.average {
+  background: linear-gradient(135deg, #fbbf24, #f59e0b);
+  border-color: rgba(251, 191, 36, 0.5);
+  box-shadow: 0 8px 30px rgba(251, 191, 36, 0.4);
+}
+
+.modal-avatar-large.poor {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  border-color: rgba(239, 68, 68, 0.5);
+  box-shadow: 0 8px 30px rgba(239, 68, 68, 0.4);
+}
+
+.modal-avatar-large img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.avatar-initials-huge {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #101010;
+}
+
+/* Student Name & Info */
+.modal-student-name {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin: 0 0 6px 0;
+  letter-spacing: -0.5px;
+}
+
+.modal-student-usn {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--accent-cyan);
+  font-family: "Courier New", monospace;
+  margin: 0 0 6px 0;
+}
+
+.modal-student-dept {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin: 0 0 16px 0;
+}
+
+/* Badges */
+.modal-badges {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.modal-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 16px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  backdrop-filter: blur(10px);
+}
+
+.badge-risk {
+  background: rgba(239, 68, 68, 0.2);
+  color: #ef4444;
+  border: 1px solid rgba(239, 68, 68, 0.4);
+}
+
+.badge-top {
+  background: rgba(251, 191, 36, 0.2);
+  color: #fbbf24;
+  border: 1px solid rgba(251, 191, 36, 0.4);
+}
+
+.badge-streak {
+  background: rgba(249, 115, 22, 0.2);
+  color: #f97316;
+  border: 1px solid rgba(249, 115, 22, 0.4);
+}
+
+/* Contact Grid */
+.modal-contacts-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.contact-item-modal {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  word-break: break-word;
+}
+
+.contact-icon {
+  color: var(--accent-cyan);
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.parent-contact {
+  border-color: rgba(251, 191, 36, 0.3);
+  background: rgba(251, 191, 36, 0.08);
+}
+
+.parent-contact .contact-icon {
+  color: #fbbf24;
+}
+
+/* ===================================================================
+   DIVIDER
+   =================================================================== */
+
+.modal-divider {
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(0, 212, 255, 0.3),
+    transparent
+  );
+  margin: 24px 0;
+}
+
+/* ===================================================================
+   SECTIONS
+   =================================================================== */
+
+.modal-section {
+  margin-bottom: 28px;
+}
+
+.section-title-modal {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--accent-cyan);
+  margin: 0 0 16px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.section-title-modal svg {
+  font-size: 1.2rem;
+}
+
+/* ===================================================================
+   ATTENDANCE OVERVIEW CARD
+   =================================================================== */
+
+.attendance-overview-card {
+  padding: 24px;
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(15px);
+  border: 1.5px solid rgba(0, 212, 255, 0.2);
+  border-radius: 16px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.attendance-overview-card.excellent {
+  border-color: rgba(16, 185, 129, 0.3);
+  box-shadow: 0 0 30px rgba(16, 185, 129, 0.15);
+}
+
+.attendance-overview-card.good {
+  border-color: rgba(0, 212, 255, 0.3);
+  box-shadow: 0 0 30px rgba(0, 212, 255, 0.15);
+}
+
+.attendance-overview-card.average {
+  border-color: rgba(251, 191, 36, 0.3);
+  box-shadow: 0 0 30px rgba(251, 191, 36, 0.15);
+}
+
+.attendance-overview-card.poor {
+  border-color: rgba(239, 68, 68, 0.3);
+  box-shadow: 0 0 30px rgba(239, 68, 68, 0.15);
+}
+
+/* Main Percentage */
+.attendance-main {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.attendance-percentage-large {
+  display: block;
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 6px;
+  background: linear-gradient(135deg, #00d4ff, #00ffd4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.attendance-overview-card.excellent .attendance-percentage-large {
+  background: linear-gradient(135deg, #10b981, #059669);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.attendance-overview-card.average .attendance-percentage-large {
+  background: linear-gradient(135deg, #fbbf24, #f59e0b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.attendance-overview-card.poor .attendance-percentage-large {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.attendance-label-main {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+/* Horizontal Bar Large */
+.attendance-bar-large {
+  height: 14px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.attendance-bar-fill-large {
+  height: 100%;
+  border-radius: 20px;
+  transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 0 10px currentColor;
+}
+
+.attendance-bar-fill-large.excellent {
+  background: linear-gradient(90deg, #10b981, #059669);
+}
+
+.attendance-bar-fill-large.good {
+  background: linear-gradient(90deg, #00d4ff, #0891b2);
+}
+
+.attendance-bar-fill-large.average {
+  background: linear-gradient(90deg, #fbbf24, #f59e0b);
+}
+
+.attendance-bar-fill-large.poor {
+  background: linear-gradient(90deg, #ef4444, #dc2626);
+}
+
+/* Stats Grid */
+.attendance-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.stat-box-modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 16px 12px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+}
+
+.stat-icon-modal {
+  font-size: 1.8rem;
+  color: var(--text-secondary);
+}
+
+.stat-icon-modal.present-icon {
+  color: #10b981;
+}
+
+.stat-icon-modal.absent-icon {
+  color: #ef4444;
+}
+
+.stat-value-modal {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1;
+}
+
+.stat-label-modal {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+/* Status Alert */
+.status-alert-modal {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  backdrop-filter: blur(10px);
+}
+
+.alert-risk {
+  background: rgba(239, 68, 68, 0.2);
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  color: #ef4444;
+}
+
+.alert-good {
+  background: rgba(16, 185, 129, 0.2);
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  color: #10b981;
+}
+
+.status-alert-modal svg {
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+/* ===================================================================
+   ACTIVITY TIMELINE
+   =================================================================== */
+
+.activity-timeline-modal {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+  padding-left: 24px;
+}
+
+.timeline-item-modal {
+  position: relative;
+}
+
+/* Timeline Dot */
+.timeline-dot-modal {
+  position: absolute;
+  left: -24px;
+  top: 4px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  z-index: 2;
+}
+
+.timeline-item-modal.present .timeline-dot-modal {
+  background: #10b981;
+  border-color: #059669;
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.6);
+}
+
+.timeline-item-modal.absent .timeline-dot-modal {
+  background: #ef4444;
+  border-color: #dc2626;
+  box-shadow: 0 0 10px rgba(239, 68, 68, 0.6);
+}
+
+/* Timeline Line */
+.timeline-line-modal {
+  position: absolute;
+  left: -19px;
+  top: 16px;
+  bottom: -16px;
+  width: 2px;
+  background: rgba(255, 255, 255, 0.1);
+  z-index: 1;
+}
+
+.timeline-item-modal:last-child .timeline-line-modal {
+  display: none;
+}
+
+/* Timeline Content */
+.timeline-content-modal {
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+}
+
+.timeline-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 6px;
+}
+
+.timeline-date-text {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+.timeline-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  backdrop-filter: blur(10px);
+}
+
+.timeline-status-badge.present {
+  background: rgba(16, 185, 129, 0.2);
+  color: #10b981;
+}
+
+.timeline-status-badge.absent {
+  background: rgba(239, 68, 68, 0.2);
+  color: #ef4444;
+}
+
+.timeline-status-badge svg {
+  font-size: 0.85rem;
+}
+
+.timeline-meta-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.timeline-time {
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.timeline-method {
+  padding: 2px 8px;
+  background: rgba(0, 212, 255, 0.15);
+  border-radius: 8px;
+  color: var(--accent-cyan);
+  font-weight: 600;
+}
+
+.timeline-late-badge {
+  padding: 2px 8px;
+  background: rgba(251, 191, 36, 0.2);
+  border-radius: 8px;
+  color: #fbbf24;
+  font-weight: 600;
+}
+
+/* ===================================================================
+   ACTION BUTTONS
+   =================================================================== */
+
+.modal-actions-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-top: 20px;
+}
+
+.modal-action-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 20px;
+  border-radius: 14px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  border: 2px solid;
+  backdrop-filter: blur(10px);
+}
+
+.btn-primary {
+  background: linear-gradient(
+    135deg,
+    rgba(0, 212, 255, 0.25),
+    rgba(0, 255, 212, 0.2)
+  );
+  border-color: rgba(0, 212, 255, 0.5);
+  color: var(--accent-cyan);
+}
+
+.btn-primary:active {
+  background: linear-gradient(
+    135deg,
+    rgba(0, 212, 255, 0.35),
+    rgba(0, 255, 212, 0.3)
+  );
+  transform: scale(0.98);
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: var(--text-primary);
+}
+
+.btn-secondary:active {
+  background: rgba(255, 255, 255, 0.1);
+  transform: scale(0.98);
+}
+
+.modal-action-btn svg {
+  font-size: 1.1rem;
+}
+
+/* ===================================================================
+   DESKTOP RESPONSIVE
+   =================================================================== */
+
+@media (min-width: 769px) {
+  .student-modal-overlay {
+    align-items: center;
+    padding: 20px;
+  }
+
+  .student-modal-container {
+    width: 90%;
+    max-width: 500px;
+    height: auto;
+    max-height: 90vh;
+    border-radius: 24px;
+    border: 1.5px solid rgba(255, 255, 255, 0.15);
+    animation: modalGlow 3s ease-in-out infinite alternate;
+  }
+
+  @keyframes modalGlow {
+    from {
+      box-shadow: 0 10px 60px rgba(0, 0, 0, 0.6),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    }
+    to {
+      box-shadow: 0 10px 60px rgba(0, 0, 0, 0.6),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    }
+  }
+
+  .modal-actions-section {
+    flex-direction: row;
+  }
+
+  .modal-action-btn {
+    flex: 1;
+  }
+
+  .modal-action-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  .btn-primary:hover {
+    background: linear-gradient(
+      135deg,
+      rgba(0, 212, 255, 0.35),
+      rgba(0, 255, 212, 0.3)
+    );
+  }
+
+  .btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.3);
+  }
+}
+
+/* Tablet */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .student-modal-container {
+    max-width: 550px;
+  }
+}

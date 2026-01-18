@@ -1,0 +1,548 @@
+/* ============================================
+   GLOBAL MODAL & FORM STYLES
+   Default styling for all modals and forms across the app
+   ============================================ */
+
+/* ============================================
+   MODAL OVERLAY
+   ============================================ */
+.modal-overlay,
+.um-modal-overlay,
+.cm-modal-overlay,
+.cdm-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+/* ============================================
+   MODAL CONTAINER - Pure Glass Effect (No Blue Tint)
+   ============================================ */
+.modal,
+.um-modal,
+.cm-modal,
+.cdm-modal {
+  width: 100%;
+  max-width: 600px;
+  max-height: 90vh;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* ============================================
+   MODAL HEADER
+   ============================================ */
+.modal-header,
+.um-modal-header,
+.cm-modal-header,
+.cdm-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.modal-header h2,
+.um-modal-header h2,
+.cm-modal-header h2,
+.cdm-modal-header h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+  letter-spacing: 0.3px;
+}
+
+/* Close Button */
+.modal-close,
+.um-modal-close,
+.cm-modal-close,
+.cdm-modal-close {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+  color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  transition: all 0.2s ease;
+}
+
+.modal-close:hover,
+.um-modal-close:hover,
+.cm-modal-close:hover,
+.cdm-modal-close:hover {
+  background: rgba(239, 68, 68, 0.15);
+  border-color: rgba(239, 68, 68, 0.3);
+  color: #ef4444;
+}
+
+/* ============================================
+   MODAL FORM
+   ============================================ */
+.modal-form,
+.um-modal-form,
+.cm-modal-form,
+.cdm-modal-form {
+  padding: 24px;
+  overflow-y: auto;
+  max-height: calc(90vh - 160px);
+}
+
+/* ============================================
+   FORM GROUPS
+   ============================================ */
+.form-group,
+.um-form-group,
+.cm-form-group,
+.cdm-form-group {
+  margin-bottom: 20px;
+}
+
+/* Labels */
+.form-group label,
+.um-form-group label,
+.cm-form-group label,
+.cdm-form-group label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.75);
+  letter-spacing: 0.3px;
+}
+
+.form-group label svg,
+.um-form-group label svg,
+.cm-form-group label svg,
+.cdm-form-group label svg {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 1rem;
+}
+
+/* ============================================
+   INPUT FIELDS - NO FOCUS GLOW
+   ============================================ */
+.form-group input,
+.form-group select,
+.form-group textarea,
+.um-form-group input,
+.um-form-group select,
+.um-form-group textarea,
+.cm-form-group input,
+.cm-form-group select,
+.cm-form-group textarea,
+.cdm-form-group input,
+.cdm-form-group select,
+.cdm-form-group textarea {
+  width: 100%;
+  padding: 14px 16px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-family: inherit;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+/* Placeholder */
+.form-group input::placeholder,
+.form-group textarea::placeholder,
+.um-form-group input::placeholder,
+.um-form-group textarea::placeholder,
+.cm-form-group input::placeholder,
+.cm-form-group textarea::placeholder,
+.cdm-form-group input::placeholder,
+.cdm-form-group textarea::placeholder {
+  color: rgba(255, 255, 255, 0.35);
+}
+
+/* Focus State - Subtle, no bright glow */
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus,
+.um-form-group input:focus,
+.um-form-group select:focus,
+.um-form-group textarea:focus,
+.cm-form-group input:focus,
+.cm-form-group select:focus,
+.cm-form-group textarea:focus,
+.cdm-form-group input:focus,
+.cdm-form-group select:focus,
+.cdm-form-group textarea:focus {
+  outline: none;
+  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* Textarea */
+.form-group textarea,
+.um-form-group textarea,
+.cm-form-group textarea,
+.cdm-form-group textarea {
+  resize: vertical;
+  min-height: 100px;
+  line-height: 1.5;
+}
+
+/* Select Dropdown */
+.form-group select,
+.um-form-group select,
+.cm-form-group select,
+.cdm-form-group select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='rgba(255,255,255,0.4)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  background-size: 16px;
+  padding-right: 44px;
+}
+
+.form-group select option,
+.um-form-group select option,
+.cm-form-group select option,
+.cdm-form-group select option {
+  background: #12121a;
+  color: #fff;
+  padding: 12px;
+}
+
+/* ============================================
+   FORM ROWS (2-column layout)
+   ============================================ */
+.form-row,
+.um-form-row,
+.cm-form-row,
+.cdm-form-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+@media (max-width: 600px) {
+  .form-row,
+  .um-form-row,
+  .cm-form-row,
+  .cdm-form-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================
+   PASSWORD INPUT WITH TOGGLE
+   ============================================ */
+.password-input,
+.um-password-input {
+  position: relative;
+}
+
+.password-input input,
+.um-password-input input {
+  padding-right: 50px;
+}
+
+.password-toggle,
+.um-password-toggle {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.password-toggle:hover,
+.um-password-toggle:hover {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* ============================================
+   MODAL ACTIONS (Buttons)
+   ============================================ */
+.modal-actions,
+.um-modal-actions,
+.cm-modal-actions,
+.cdm-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Cancel Button */
+.btn-cancel,
+.um-btn-cancel,
+.cm-btn-cancel,
+.cdm-btn-cancel {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.btn-cancel:hover,
+.um-btn-cancel:hover,
+.cm-btn-cancel:hover,
+.cdm-btn-cancel:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+}
+
+/* Submit Button */
+.btn-submit,
+.um-btn-submit,
+.cm-btn-submit,
+.cdm-btn-submit {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  border: none;
+  color: #fff;
+}
+
+.btn-submit:hover,
+.um-btn-submit:hover,
+.cm-btn-submit:hover,
+.cdm-btn-submit:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.35);
+}
+
+/* Add Button (for adding students to class, etc.) */
+.btn-add,
+.cdm-btn-add {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-add:disabled,
+.cdm-btn-add:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+.btn-add:not(:disabled):hover,
+.cdm-btn-add:not(:disabled):hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.35);
+}
+
+/* ============================================
+   SEARCH INPUT IN MODALS
+   ============================================ */
+.modal-search,
+.cdm-modal-search {
+  position: relative;
+  padding: 16px 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.search-icon,
+.cdm-search-icon {
+  position: absolute;
+  left: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgba(255, 255, 255, 0.35);
+  font-size: 1rem;
+}
+
+.modal-search input,
+.cdm-modal-search input {
+  width: 100%;
+  padding: 12px 16px 12px 44px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  color: #fff;
+  font-size: 0.95rem;
+}
+
+.modal-search input::placeholder,
+.cdm-modal-search input::placeholder {
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.modal-search input:focus,
+.cdm-modal-search input:focus {
+  outline: none;
+  border-color: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* ============================================
+   MODAL BODY
+   ============================================ */
+.modal-body,
+.cdm-modal-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px 24px;
+  max-height: 400px;
+}
+
+/* ============================================
+   MODAL FOOTER
+   ============================================ */
+.modal-footer,
+.cdm-modal-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.selected-count,
+.cdm-selected-count {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* ============================================
+   STUDENT SELECT LIST IN MODALS
+   ============================================ */
+.students-select-list,
+.cdm-students-select-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.student-select-item,
+.cdm-student-select-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 14px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.student-select-item:hover,
+.cdm-student-select-item:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.student-select-item.selected,
+.cdm-student-select-item.selected {
+  background: rgba(16, 185, 129, 0.1);
+  border-color: rgba(16, 185, 129, 0.25);
+}
+
+.select-checkbox,
+.cdm-select-checkbox {
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s ease;
+  flex-shrink: 0;
+}
+
+.student-select-item.selected .select-checkbox,
+.cdm-student-select-item.selected .cdm-select-checkbox {
+  background: #10b981;
+  border-color: #10b981;
+  color: #fff;
+}
+
+.student-select-info,
+.cdm-student-select-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.student-select-info .student-name,
+.cdm-student-select-info .cdm-student-name {
+  font-weight: 500;
+  color: #fff;
+}
+
+.student-details,
+.cdm-student-details {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.45);
+  margin-top: 2px;
+}
+
+/* ============================================
+   NO DATA STATES IN MODALS
+   ============================================ */
+.no-data,
+.no-students,
+.cdm-no-students {
+  text-align: center;
+  padding: 40px 20px;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.95rem;
+}

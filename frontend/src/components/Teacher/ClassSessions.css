@@ -1,0 +1,576 @@
+.class-sessions-container {
+  padding: 24px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.sessions-section {
+  margin-bottom: 40px;
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.section-title.live {
+  color: #ff3b30;
+  border-bottom-color: rgba(255, 59, 48, 0.3);
+}
+.section-title.upcoming {
+  color: #00d4ff;
+  border-bottom-color: rgba(0, 212, 255, 0.3);
+}
+.section-title.history {
+  color: #10b981;
+  border-bottom-color: rgba(16, 185, 129, 0.3);
+}
+
+.live-indicator {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.live-dot {
+  width: 10px;
+  height: 10px;
+  background: #ff3b30;
+  border-radius: 50%;
+  animation: blink 1.5s infinite;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+
+/* Session Grid */
+.sessions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 20px;
+}
+
+/* Session Cards */
+.session-card {
+  padding: 24px;
+  background: rgba(20, 20, 30, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  backdrop-filter: blur(10px);
+}
+
+.session-card:hover {
+  background: rgba(20, 20, 30, 0.8);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+/* Live Sessions Row Layout */
+.live-sessions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 32px;
+}
+
+.live-session-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 20px;
+  background: rgba(255, 59, 48, 0.06);
+  border: 1px solid rgba(255, 59, 48, 0.2);
+  border-left: 3px solid #ff3b30;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.live-session-row:hover {
+  background: rgba(255, 59, 48, 0.1);
+  border-color: rgba(255, 59, 48, 0.35);
+  box-shadow: 0 4px 16px rgba(255, 59, 48, 0.15);
+}
+
+.live-row-indicator {
+  flex-shrink: 0;
+}
+
+.pulse-dot {
+  width: 10px;
+  height: 10px;
+  background: #ff3b30;
+  border-radius: 50%;
+  animation: pulse-live 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse-live {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.2);
+  }
+}
+
+.live-row-time {
+  flex-shrink: 0;
+  padding: 6px 12px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.8);
+  font-family: "Courier New", monospace;
+  min-width: 60px;
+  text-align: center;
+}
+
+.live-row-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.live-row-subject {
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.live-row-topic {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.5);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.live-row-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-shrink: 0;
+}
+
+.live-row-room {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.live-row-room svg {
+  font-size: 0.9rem;
+}
+
+.live-row-btn {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 18px;
+  background: linear-gradient(135deg, #ff3b30, #ff6b5a);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.live-row-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 59, 48, 0.4);
+}
+
+.live-row-btn svg {
+  font-size: 0.9rem;
+}
+
+.session-card.upcoming {
+  border-left: 4px solid #00d4ff;
+}
+
+.session-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.session-status-badge.live {
+  background: rgba(255, 59, 48, 0.2);
+  border: 1px solid rgba(255, 59, 48, 0.4);
+  color: #ff3b30;
+}
+
+.session-card h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: white;
+  margin: 0 0 4px;
+}
+
+.course-code {
+  font-size: 0.85rem;
+  color: #00d4ff;
+  font-family: "Courier New", monospace;
+  margin: 0 0 16px;
+}
+
+.session-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.info-item svg {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.4);
+  flex-shrink: 0;
+}
+
+.view-session-btn {
+  width: 100%;
+  padding: 12px;
+  background: rgba(0, 212, 255, 0.1);
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  border-radius: 10px;
+  color: #00d4ff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.view-session-btn:hover {
+  background: rgba(0, 212, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+/* Return to Session button for Live cards */
+.session-card.live .view-session-btn {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 59, 48, 0.2),
+    rgba(255, 100, 100, 0.1)
+  );
+  border: 1px solid rgba(255, 59, 48, 0.5);
+  color: #ff6b5a;
+}
+
+.session-card.live .view-session-btn:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 59, 48, 0.3),
+    rgba(255, 100, 100, 0.2)
+  );
+  box-shadow: 0 4px 12px rgba(255, 59, 48, 0.3);
+}
+
+/* No Live Banner */
+.no-live-banner {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 32px;
+  background: linear-gradient(
+    135deg,
+    rgba(20, 20, 30, 0.8),
+    rgba(30, 30, 40, 0.6)
+  );
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  margin-bottom: 40px;
+}
+
+.banner-icon {
+  font-size: 3rem;
+  color: rgba(255, 255, 255, 0.2);
+}
+
+.banner-content {
+  flex: 1;
+}
+
+.banner-content h3 {
+  font-size: 1.2rem;
+  color: white;
+  margin: 0 0 4px;
+}
+
+.banner-content p {
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0;
+}
+
+.create-session-btn {
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #00d4ff, #0066ff);
+  border: none;
+  border-radius: 12px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 100, 255, 0.3);
+}
+
+.create-session-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 100, 255, 0.4);
+}
+
+/* Timeline Styles */
+.session-timeline {
+  position: relative;
+  padding-left: 20px;
+}
+
+.session-timeline::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 1px;
+}
+
+.timeline-day-group {
+  margin-bottom: 24px;
+}
+
+.timeline-day-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  cursor: pointer;
+  margin-bottom: 12px;
+  transition: background 0.2s ease;
+}
+
+.timeline-day-header:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.timeline-day-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.timeline-day-name {
+  font-weight: 600;
+  color: white;
+}
+
+.timeline-day-date {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.timeline-day-sessions {
+  padding-left: 16px;
+  overflow: hidden;
+}
+
+.timeline-item {
+  position: relative;
+  padding: 16px;
+  margin-bottom: 12px;
+  background: rgba(20, 20, 30, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  transition: all 0.2s ease;
+}
+
+.timeline-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+  transform: translateX(4px);
+}
+
+.timeline-marker {
+  position: absolute;
+  left: -21px;
+  top: 24px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid #0a0a12;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1);
+}
+
+.timeline-content {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 16px;
+}
+
+.timeline-time {
+  font-family: "Courier New", monospace;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.6);
+  padding: 4px 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 6px;
+}
+
+.timeline-subject {
+  font-weight: 600;
+  color: white;
+}
+
+.timeline-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 0.85rem;
+}
+
+.timeline-room {
+  color: rgba(255, 255, 255, 0.5);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.timeline-attendance {
+  font-weight: 600;
+}
+
+.timeline-week-group {
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px dashed rgba(255, 255, 255, 0.1);
+}
+
+.timeline-week-title {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 16px;
+  padding-left: 16px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .sessions-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .no-live-banner {
+    flex-direction: column;
+    text-align: center;
+    gap: 16px;
+  }
+
+  .timeline-content {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .timeline-meta {
+    justify-content: space-between;
+    margin-top: 8px;
+  }
+
+  .timeline-actions {
+    opacity: 1; /* Always show on mobile */
+    margin-top: 8px;
+  }
+}
+
+/* Timeline Actions */
+.timeline-actions {
+  display: flex;
+  gap: 8px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.timeline-item:hover .timeline-actions {
+  opacity: 1;
+}
+
+.timeline-action-btn {
+  padding: 8px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.timeline-action-btn:hover {
+  transform: translateY(-2px);
+  color: white;
+}
+
+.timeline-action-btn.report:hover {
+  background: rgba(0, 212, 255, 0.2);
+  color: #00d4ff;
+}
+
+.timeline-action-btn.export:hover {
+  background: rgba(16, 185, 129, 0.2);
+  color: #10b981;
+}

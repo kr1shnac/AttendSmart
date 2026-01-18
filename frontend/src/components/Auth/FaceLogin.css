@@ -1,0 +1,523 @@
+/**
+ * FaceLogin Component Styles
+ * 
+ * Premium glassmorphism design - matches Login.css theme exactly
+ * Dark aurora theme with cyan/teal accents
+ */
+
+/* ============================================
+   ROOT MATCHING LOGIN THEME
+   ============================================ */
+
+.face-login {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+  background: #050508;
+}
+
+/* Aurora background gradient - same as Login */
+.face-login::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+      ellipse 80% 50% at 20% 30%,
+      rgba(0, 212, 255, 0.08) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      ellipse 60% 50% at 80% 70%,
+      rgba(16, 185, 129, 0.06) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      ellipse 40% 40% at 40% 80%,
+      rgba(0, 255, 212, 0.05) 0%,
+      transparent 50%
+    ),
+    linear-gradient(180deg, #050508 0%, #0f0f1a 50%, #050508 100%);
+  z-index: -2;
+  pointer-events: none;
+}
+
+/* Animated aurora overlay */
+.face-login::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(
+      circle at 25% 25%,
+      rgba(0, 212, 255, 0.1) 0%,
+      transparent 25%
+    ),
+    radial-gradient(
+      circle at 75% 75%,
+      rgba(0, 255, 212, 0.08) 0%,
+      transparent 25%
+    );
+  animation: auroraFlow 20s ease-in-out infinite;
+  z-index: -1;
+  pointer-events: none;
+}
+
+@keyframes auroraFlow {
+  0%,
+  100% {
+    transform: translateX(0) translateY(0) scale(1);
+    opacity: 0.6;
+  }
+  25% {
+    transform: translateX(-20px) translateY(-10px) scale(1.05);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateX(20px) translateY(10px) scale(0.95);
+    opacity: 0.7;
+  }
+  75% {
+    transform: translateX(-10px) translateY(20px) scale(1.02);
+    opacity: 0.9;
+  }
+}
+
+/* ============================================
+   MAIN CONTAINER - Matches login-container
+   ============================================ */
+
+.face-login-container {
+  width: 100%;
+  max-width: 420px;
+  padding: 44px 36px;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+
+  /* Premium glass morphism - EXACT match with Login.css */
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.04) 0%,
+    rgba(255, 255, 255, 0.01) 50%,
+    rgba(255, 255, 255, 0.03) 100%
+  );
+  backdrop-filter: blur(40px) saturate(150%);
+  -webkit-backdrop-filter: blur(40px) saturate(150%);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 28px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4), 0 1px 2px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04), 0 0 60px rgba(0, 212, 255, 0.03);
+}
+
+/* Top highlight line */
+.face-login-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.25),
+    rgba(255, 255, 255, 0.4),
+    rgba(255, 255, 255, 0.25),
+    transparent
+  );
+  opacity: 0.8;
+}
+
+/* Bottom subtle glow */
+.face-login-container::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 20%;
+  right: 20%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0, 212, 255, 0.2),
+    transparent
+  );
+}
+
+/* ============================================
+   HEADER - Matches login-header
+   ============================================ */
+
+.face-login-header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.face-login-header .face-icon-wrapper {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 212, 255, 0.15) 0%,
+    rgba(0, 255, 212, 0.08) 100%
+  );
+  border: 2px solid rgba(0, 212, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+  box-shadow: 0 0 30px rgba(0, 212, 255, 0.15);
+  animation: pulse 3s ease-in-out infinite;
+}
+
+.face-login-header .face-icon-wrapper svg {
+  font-size: 2rem;
+  color: #00d4ff;
+  filter: drop-shadow(0 0 8px rgba(0, 212, 255, 0.5));
+}
+
+.face-login-header h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 0 0 10px 0;
+  /* Aurora gradient text - same as Login */
+  background: linear-gradient(135deg, #00d4ff 0%, #00ffd4 50%, #3b82f6 100%);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 10s ease-in-out infinite;
+  filter: drop-shadow(0 1px 2px rgba(0, 212, 255, 0.15));
+}
+
+@keyframes shimmer {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.face-login-header .status-text {
+  color: #8892a6;
+  font-size: 0.875rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  opacity: 0.9;
+  margin: 0;
+}
+
+/* ============================================
+   CAMERA CONTAINER - Premium Style
+   ============================================ */
+
+.face-login .camera-container {
+  position: relative;
+  margin-bottom: 24px;
+}
+
+.face-login .camera-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4/3;
+  border-radius: 20px;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.4);
+  border: 2px solid rgba(0, 212, 255, 0.15);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3),
+    inset 0 0 40px rgba(0, 212, 255, 0.05);
+}
+
+/* Scanning line animation */
+.face-login .camera-frame::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0, 255, 212, 0.8),
+    #00d4ff,
+    rgba(0, 255, 212, 0.8),
+    transparent
+  );
+  animation: scanMove 2.5s ease-in-out infinite;
+  box-shadow: 0 0 15px rgba(0, 212, 255, 0.5);
+  z-index: 5;
+}
+
+@keyframes scanMove {
+  0% {
+    transform: translateY(0) scaleX(0.8);
+    opacity: 0;
+  }
+  50% {
+    transform: translateY(150px) scaleX(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(300px) scaleX(0.8);
+    opacity: 0;
+  }
+}
+
+.face-login .camera-placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(5, 5, 8, 0.9);
+  color: #5a6478;
+}
+
+.face-login .camera-placeholder .placeholder-icon {
+  font-size: 3.5rem;
+  margin-bottom: 12px;
+  color: rgba(0, 212, 255, 0.3);
+}
+
+.face-login .captured-preview {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scaleX(-1);
+}
+
+.face-login .verifying-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(5px);
+  z-index: 10;
+  color: #fff;
+}
+
+.face-login .verifying-overlay .spinner-icon {
+  font-size: 2.5rem;
+  color: #00d4ff;
+  animation: spin 1s linear infinite;
+  margin-bottom: 16px;
+  filter: drop-shadow(0 0 10px rgba(0, 212, 255, 0.5));
+}
+
+.face-login .verifying-overlay p {
+  color: #00d4ff;
+  font-weight: 500;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Status badges */
+.face-login .detection-status {
+  position: absolute;
+  bottom: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+}
+
+.face-login .status-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  white-space: nowrap;
+}
+
+.face-login .status-badge.detected {
+  background: linear-gradient(
+    135deg,
+    rgba(0, 212, 255, 0.2),
+    rgba(0, 255, 212, 0.15)
+  );
+  color: #00d4ff;
+  border: 1px solid rgba(0, 212, 255, 0.4);
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
+}
+
+/* ============================================
+   ERROR TOAST
+   ============================================ */
+
+.face-login .error-toast {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 18px;
+  margin-bottom: 16px;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.25);
+  border-radius: 14px;
+  color: #ef4444;
+  font-size: 0.9rem;
+}
+
+/* ============================================
+   BUTTONS - Matches aurora-button
+   ============================================ */
+
+.face-login .login-actions {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.face-login .primary-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 16px 32px;
+  border-radius: 14px;
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: none;
+
+  /* Aurora button gradient */
+  background: linear-gradient(
+    135deg,
+    rgba(0, 212, 255, 0.2) 0%,
+    rgba(0, 255, 212, 0.15) 100%
+  );
+  border: 1px solid rgba(0, 212, 255, 0.4);
+  color: #ffffff;
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.15);
+}
+
+.face-login .primary-btn:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(0, 212, 255, 0.3) 0%,
+    rgba(0, 255, 212, 0.2) 100%
+  );
+  box-shadow: 0 4px 25px rgba(0, 212, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.face-login .manual-login-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #8892a6;
+  padding: 14px 24px;
+  border-radius: 14px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.face-login .manual-login-btn:hover {
+  border-color: rgba(0, 212, 255, 0.4);
+  color: #00d4ff;
+  background: rgba(0, 212, 255, 0.08);
+}
+
+/* ============================================
+   VERIFICATION INFO
+   ============================================ */
+
+.face-login .verification-info {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-top: 24px;
+  padding: 14px 18px;
+  background: rgba(0, 212, 255, 0.05);
+  border: 1px solid rgba(0, 212, 255, 0.15);
+  border-radius: 14px;
+}
+
+.face-login .verification-info .info-icon {
+  font-size: 1.3rem;
+  color: #00d4ff;
+  flex-shrink: 0;
+}
+
+.face-login .verification-info p {
+  margin: 0;
+  color: #8892a6;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  text-align: left;
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 480px) {
+  .face-login-container {
+    padding: 32px 24px;
+    border-radius: 24px;
+  }
+
+  .face-login-header h2 {
+    font-size: 1.6rem;
+  }
+
+  .face-login .camera-frame {
+    border-radius: 16px;
+  }
+}
